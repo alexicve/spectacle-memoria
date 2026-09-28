@@ -348,26 +348,20 @@ p + p { margin-top: 0.9rem; }
   background: var(--logo-blue);
   box-shadow: var(--shadow-s);
 }
-/* Nuages qui dérivent dans l'en-tête, comme sur le logo. */
+/* Illustration fixe dans l'en-tête (assets/images/header-clouds.jpg),
+   sans animation. background-size:cover garde ses proportions d'origine
+   (pas de bande étirée) et la recadre pour remplir la hauteur du header. */
 .site-header::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.85;
-  background-image:
-    radial-gradient(70px 20px at 8% 45%, rgba(255, 255, 255, 0.95), transparent 72%),
-    radial-gradient(105px 26px at 28% 68%, rgba(255, 255, 255, 0.8), transparent 72%),
-    radial-gradient(80px 22px at 54% 28%, rgba(255, 255, 255, 0.92), transparent 72%),
-    radial-gradient(115px 28px at 78% 58%, rgba(255, 255, 255, 0.78), transparent 72%);
-  background-repeat: repeat-x;
-  background-size: 460px 100%;
-  animation: header-clouds-drift 26s linear infinite;
-}
-@keyframes header-clouds-drift {
-  from { background-position: 0 0; }
-  to   { background-position: -460px 0; }
+  opacity: 0.9;
+  background-image: url("../assets/images/header-clouds.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 45%;
 }
 .site-header__inner {
   width: min(100% - 2.5rem, var(--maxw));
@@ -658,24 +652,27 @@ p + p { margin-top: 0.9rem; }
      s'échapper derrière toute la page (nuages invisibles sinon). */
   z-index: 0;
 }
-/* Mêmes nuages qui dérivent que dans l'en-tête (§ .site-header::before),
-   posés en ::after car ::before sert déjà au liseré coloré du haut de
-   section. Couleur de fond de la section : voir .section--sky. */
+/* Même illustration que l'en-tête (§ .site-header::before), posée en
+   ::after car ::before sert déjà au liseré coloré du haut de section.
+   La section est plus haute que l'en-tête : on couvre toute la zone et
+   on fait dériver lentement le cadrage (va-et-vient) plutôt que répéter
+   une bande fine. Couleur de fond de la section : voir .section--sky. */
 .intro::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.85;
-  background-image:
-    radial-gradient(70px 20px at 8% 45%, rgba(255, 255, 255, 0.95), transparent 72%),
-    radial-gradient(105px 26px at 28% 68%, rgba(255, 255, 255, 0.8), transparent 72%),
-    radial-gradient(80px 22px at 54% 28%, rgba(255, 255, 255, 0.92), transparent 72%),
-    radial-gradient(115px 28px at 78% 58%, rgba(255, 255, 255, 0.78), transparent 72%);
-  background-repeat: repeat-x;
-  background-size: 460px 100%;
-  animation: header-clouds-drift 26s linear infinite;
+  opacity: 0.9;
+  background-image: url("../assets/images/header-clouds.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 50%;
+  animation: bg-clouds-pan 50s ease-in-out infinite alternate;
+}
+@keyframes bg-clouds-pan {
+  from { background-position: 0% 50%; }
+  to   { background-position: 100% 50%; }
 }
 .intro__title { margin: 0.6rem 0 0.4rem; }
 .intro__subtitle {

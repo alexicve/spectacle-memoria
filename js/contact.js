@@ -51,7 +51,7 @@
         "Nous vous répondons sous 48 h ouvrées."
       );
     }).catch(function () {
-      setStatus("err", "Une erreur est survenue. Vous pouvez nous écrire directement à contact@etoile-filante-spectacle.fr");
+      setStatus("err", "Une erreur est survenue. Vous pouvez nous écrire directement à spectacle.memoria@gmail.com");
     }).finally(function () {
       if (btn) { btn.disabled = false; btn.textContent = label; }
     });
