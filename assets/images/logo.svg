@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="78" viewBox="0 0 340 78" role="img" aria-label="Mémoria — le village des souvenirs perdus">
+  <defs>
+    <linearGradient id="lgGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#efd98d"/>
+      <stop offset="0.5" stop-color="#c9a24a"/>
+      <stop offset="1" stop-color="#7a5c14"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icône : petite boîte à musique -->
+  <g transform="translate(6 8)">
+    <circle cx="31" cy="31" r="31" fill="#e9f6ee"/>
+    <!-- corps de la boîte -->
+    <rect x="12" y="30" width="38" height="22" rx="3.5" fill="#2f4f43"/>
+    <rect x="12" y="30" width="38" height="7" fill="#3a5f4c"/>
+    <!-- couvercle ouvert -->
+    <path d="M12 30 L20 18 L54 18 L50 30 Z" fill="#9ed7b4"/>
+    <path d="M20 18 L54 18 L54 14 L20 14 Z" fill="#7cc6a2"/>
+    <!-- manivelle -->
+    <path d="M50 41 h9" stroke="#2f4f43" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="60" cy="41" r="3.2" fill="url(#lgGold)"/>
+    <!-- notes qui s'envolent de la boîte -->
+    <g fill="url(#lgGold)">
+      <circle cx="30" cy="12" r="4"/>
+      <rect x="32.6" y="0" width="2.4" height="12" rx="1.2"/>
+      <circle cx="41" cy="7" r="3"/>
+      <rect x="43" y="-2" width="2" height="9" rx="1"/>
+    </g>
+  </g>
+
+  <!-- Nom du spectacle, à la plume, à l'encre dorée -->
+  <g fill="url(#lgGold)" font-family="'Segoe Script','Bradley Hand','Brush Script MT','Comic Sans MS',cursive">
+    <text x="78" y="48" font-size="34" font-weight="700">Mémoria</text>
+  </g>
+  <text x="79" y="67" fill="#6d7c73" font-family="'Trebuchet MS',Verdana,sans-serif" font-size="8" letter-spacing="1.6">LE VILLAGE DES SOUVENIRS PERDUS</text>
+</svg>

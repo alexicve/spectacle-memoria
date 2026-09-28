@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galerie photo — Mémoria, spectacle pour enfants</title>
+  <meta name="description" content="Galerie photo du spectacle Mémoria : décors en papier, lumières et moments de représentation. Cliquez pour agrandir.">
+  <link rel="canonical" href="https://www.etoile-filante-spectacle.fr/galerie.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mémoria">
+  <meta property="og:title" content="Galerie photo — Mémoria">
+  <meta property="og:description" content="Décors, lumières et moments de représentation du spectacle Mémoria.">
+  <meta property="og:image" content="https://www.etoile-filante-spectacle.fr/assets/images/og-image.svg">
+  <meta property="og:url" content="https://www.etoile-filante-spectacle.fr/galerie.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#24364b">
+
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/main.js" defer></script>
+  <script src="js/tabs.js" defer></script>
+  <script src="js/lightbox.js" defer></script>
+</head>
+<body data-page="galerie">
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html" aria-label="Mémoria — Le village des souvenirs perdus — accueil">
+        <img class="brand__mark" src="assets/icons/logo-mark.png" alt="" width="52" height="52">
+        <span class="brand__tagline">Le village des souvenirs perdus</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+      <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a class="nav__link" data-nav="accueil" href="index.html">Accueil</a></li>
+          <li><a class="nav__link" data-nav="actualites" href="actualites.html">Actualités</a></li>
+          <li><a class="nav__link" data-nav="presentation" href="presentation.html">Présentation</a></li>
+          <li><a class="nav__link" data-nav="galerie" href="galerie.html">Galerie</a></li>
+          <li><a class="nav__link" data-nav="documentation" href="documentation.html">Documentation</a></li>
+          <li><a class="nav__link" data-nav="contact" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="page-head">
+      <div class="container">
+        <p class="eyebrow">En images</p>
+        <h1>Galerie photo</h1>
+        <p>Un aperçu des décors, des personnages et des lumières du spectacle. Cliquez sur une image pour l'agrandir&nbsp;; naviguez avec les flèches ou en glissant le doigt.</p>
+      </div>
+    </div>
+
+    <section class="section section--wash" style="padding-top:1.5rem" data-notes="4">
+      <div class="container">
+        <!-- Onglets de la galerie : chaque panneau a son propre .gallery.
+             Pour ajouter une image : copiez un bloc <button class="gallery__item">
+             dans le panneau voulu. Réglages des onglets : js/tabs.js -->
+        <div class="tabs" role="tablist" aria-label="Catégories de la galerie">
+          <button class="tabs__btn is-active" type="button" role="tab" id="tab-dessins" aria-selected="true" aria-controls="panel-dessins" data-tab="dessins">🎨 Les personnages</button>
+          <button class="tabs__btn" type="button" role="tab" id="tab-photos" aria-selected="false" tabindex="-1" aria-controls="panel-photos" data-tab="photos">📷 Moments de vie</button>
+          <button class="tabs__btn" type="button" role="tab" id="tab-coloriages" aria-selected="false" tabindex="-1" aria-controls="panel-coloriages" data-tab="coloriages">✏️ Coloriages</button>
+        </div>
+
+        <!-- ===== Onglet 1 : dessins des personnages & de l'univers ===== -->
+        <div class="gallery gallery-panel" id="panel-dessins" role="tabpanel" aria-labelledby="tab-dessins" data-tab-panel="dessins">
+          <button class="gallery__item reveal" type="button" data-full="assets/images/marie.jpg" data-caption="Marie, personnage du spectacle">
+            <span class="shot" style="aspect-ratio:3/4"><img src="assets/images/marie.jpg" alt="Portrait illustré de Marie, cheveux bruns ondulés et lunettes rondes" loading="lazy"></span>
+            <span class="gallery__cap">Marie</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/jules.jpg" data-caption="Jules, personnage du spectacle">
+            <span class="shot" style="aspect-ratio:3/4"><img src="assets/images/jules.jpg" alt="Portrait illustré de Jules, cheveux bruns et pull orange" loading="lazy"></span>
+            <span class="gallery__cap">Jules</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/pompon.jpg" data-caption="Pompon, personnage du spectacle">
+            <span class="shot" style="aspect-ratio:1/1"><img src="assets/images/pompon.jpg" alt="Illustration de Pompon, un lapin à la casquette" loading="lazy"></span>
+            <span class="gallery__cap">Pompon</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/melisande.jpg" data-caption="Marie et Mélisande">
+            <span class="shot" style="aspect-ratio:3/4"><img src="assets/images/melisande.jpg" alt="Illustration : Mélisande, une dame âgée, et Marie dans une cuisine fleurie" loading="lazy"></span>
+            <span class="gallery__cap">Marie et Mélisande</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/ridedou1.jpg" data-caption="Un Ridédou">
+            <span class="shot" style="aspect-ratio:1/1"><img src="assets/images/ridedou1.jpg" alt="Illustration d'un Ridédou violet, mi-lapin mi-chenille, chaussé de petites bottes" loading="lazy"></span>
+            <span class="gallery__cap">Un Ridédou</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/ridedou2.jpg" data-caption="Un Ridédou">
+            <span class="shot" style="aspect-ratio:3/4"><img src="assets/images/ridedou2.jpg" alt="Illustration d'un Ridédou orange, au long cou, lisant un livre au jardin" loading="lazy"></span>
+            <span class="gallery__cap">Un Ridédou</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/memoria.jpg" data-caption="Le village de Memoria">
+            <span class="shot" style="aspect-ratio:4/3"><img src="assets/images/memoria.jpg" alt="Illustration : vue d'ensemble du village de Memoria, ses maisons colorées et son pont de pierre" loading="lazy"></span>
+            <span class="gallery__cap">Le village de Memoria</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/cle-de-sol.jpg" data-caption="La maison en clé de sol">
+            <span class="shot" style="aspect-ratio:2/3"><img src="assets/images/cle-de-sol.jpg" alt="Illustration : une maison en forme de clé de sol, entourée de fleurs et de nuages" loading="lazy"></span>
+            <span class="gallery__cap">La maison en clé de sol</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/trou-noir.jpg" data-caption="La chute dans le trou noir">
+            <span class="shot" style="aspect-ratio:4/3"><img src="assets/images/trou-noir.jpg" alt="Illustration : Marie bascule dans un trou noir sous un ciel étoilé, un oiseau bleu à ses côtés" loading="lazy"></span>
+            <span class="gallery__cap">La chute dans le trou noir</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/amour-jeunesse.jpg" data-caption="Un amour de jeunesse">
+            <span class="shot" style="aspect-ratio:2/3"><img src="assets/images/amour-jeunesse.jpg" alt="Illustration : deux jeunes gens enlacés dans une pluie de fleurs roses" loading="lazy"></span>
+            <span class="gallery__cap">Un amour de jeunesse</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/entree-maison.jpg" data-caption="L'entrée de la maison">
+            <span class="shot" style="aspect-ratio:3/4"><img src="assets/images/entree-maison.jpg" alt="Illustration : le hall d'entrée d'une maison, une porte ornée de volutes en spirale" loading="lazy"></span>
+            <span class="gallery__cap">L'entrée de la maison</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/maison-bonbon.jpg" data-caption="La maison en bonbons">
+            <span class="shot" style="aspect-ratio:3/4"><img src="assets/images/maison-bonbon.jpg" alt="Illustration : une maison en pain d'épices et sucreries" loading="lazy"></span>
+            <span class="gallery__cap">La maison en bonbons</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/cours-de-piano.jpg" data-caption="Le cours de piano">
+            <span class="shot" style="aspect-ratio:3/4"><img src="assets/images/cours-de-piano.jpg" alt="Illustration : un cours de piano, une élève et sa professeure" loading="lazy"></span>
+            <span class="gallery__cap">Le cours de piano</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/amour-vieillesse.jpg" data-caption="Un amour de vieillesse">
+            <span class="shot" style="aspect-ratio:3/4"><img src="assets/images/amour-vieillesse.jpg" alt="Illustration : un couple âgé qui danse, lui en costume, elle en robe mauve" loading="lazy"></span>
+            <span class="gallery__cap">Un amour de vieillesse</span>
+          </button>
+        </div>
+
+        <!-- ===== Onglet 2 : photos des moments de vie du spectacle ===== -->
+        <div class="gallery gallery-panel" id="panel-photos" role="tabpanel" aria-labelledby="tab-photos" data-tab-panel="photos" hidden>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/image8.jpeg" data-caption="En répétition, à l'ouverture de la boîte à musique">
+            <span class="shot" style="aspect-ratio:16/9"><img src="assets/images/image8.jpeg" alt="Zoé en répétition, ouvrant la boîte à musique en bois sur scène" loading="lazy"></span>
+            <span class="gallery__cap">En répétition, à l'ouverture de la boîte à musique</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/image12.jpeg" data-caption="Jean et Zoé en répétition">
+            <span class="shot" style="aspect-ratio:16/9"><img src="assets/images/image12.jpeg" alt="Jean, avec des oreilles de lapin, et Zoé en répétition sur scène" loading="lazy"></span>
+            <span class="gallery__cap">Jean et Zoé en répétition</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/image14.jpeg" data-caption="Zoé et Jean autour de la boîte à musique">
+            <span class="shot" style="aspect-ratio:3/2"><img src="assets/images/image14.jpeg" alt="Zoé et Jean penchés au-dessus de la grande boîte à musique en bois" loading="lazy"></span>
+            <span class="gallery__cap">Zoé et Jean autour de la boîte à musique</span>
+          </button>
+          <button class="gallery__item reveal" type="button" data-full="assets/images/image15.jpeg" data-caption="Zoé et Jean en concert">
+            <span class="shot" style="aspect-ratio:16/9"><img src="assets/images/image15.jpeg" alt="Zoé au clavier et Jean à la basse, en pleine représentation sous les lumières violettes" loading="lazy"></span>
+            <span class="gallery__cap">Zoé et Jean en concert</span>
+          </button>
+        </div>
+
+        <!-- ===== Onglet 3 : coloriages à imprimer ===== -->
+        <div class="gallery-empty gallery-panel" id="panel-coloriages" role="tabpanel" aria-labelledby="tab-coloriages" data-tab-panel="coloriages" hidden>
+          <span class="gallery-empty__icon" aria-hidden="true">✏️</span>
+          <strong>Les coloriages arrivent bientôt&nbsp;!</strong>
+          <p style="margin-top:0.4rem">Retrouvez ici prochainement des coloriages de Mémoria à imprimer pour les enfants.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img class="footer-brand__mark" src="assets/icons/logo-mark.png" alt="" width="52" height="52">
+          <p>Mémoria — un spectacle pour enfants plein de magie, de musique et de poésie, à voir en famille de 3 à 11&nbsp;ans.</p>
+          <div class="footer-socials" aria-label="Réseaux sociaux">
+            <a href="https://www.facebook.com/" aria-label="Facebook" rel="noopener" target="_blank">f</a>
+            <a href="https://www.instagram.com/" aria-label="Instagram" rel="noopener" target="_blank">◎</a>
+            <a href="https://www.youtube.com/" aria-label="YouTube" rel="noopener" target="_blank">▶</a>
+          </div>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="presentation.html">Présentation</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>À découvrir</h4>
+          <ul>
+            <li><a href="actualites.html">Actualités</a></li>
+            <li><a href="galerie.html">Galerie photo</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+            <li><a href="presentation.html#infos-pratiques">Infos pratiques</a></li>
+            <li><a href="contact.html">Programmer le spectacle</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Informations</h4>
+          <ul>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+            <li><a href="contact.html">Nous écrire</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Compagnie Étoile Filante — Tous droits réservés.</span>
+        <span>Site conçu comme une invitation au voyage. Photos d'illustration à remplacer.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

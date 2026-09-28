@@ -1,0 +1,9 @@
+# Cloudflare Wrangler — cache et fichiers temporaires locaux
+.wrangler/
+
+# Dépendances (si jamais installées localement)
+node_modules/
+
+# Fichiers système
+.DS_Store
+Thumbs.db

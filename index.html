@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mémoria — spectacle magique pour enfants et familles</title>
+  <meta name="description" content="Mémoria, un spectacle pour enfants plein de magie, de musique et de poésie. Une aventure pour toute la famille, de 3 à 11 ans. Découvrez l'univers, les actualités et les dates.">
+  <link rel="canonical" href="https://www.etoile-filante-spectacle.fr/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mémoria">
+  <meta property="og:title" content="Mémoria — spectacle magique pour enfants et familles">
+  <meta property="og:description" content="Une aventure féérique pour toute la famille, de 3 à 11 ans. Univers, actualités, galerie et contact.">
+  <meta property="og:image" content="https://www.etoile-filante-spectacle.fr/assets/images/og-image.svg">
+  <meta property="og:url" content="https://www.etoile-filante-spectacle.fr/">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#24364b">
+
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.etoile-filante-spectacle.fr/#compagnie",
+        "name": "Compagnie Étoile Filante",
+        "url": "https://www.etoile-filante-spectacle.fr/",
+        "logo": "https://www.etoile-filante-spectacle.fr/assets/images/logo-memoria.png",
+        "email": "contact@etoile-filante-spectacle.fr",
+        "telephone": "+33-1-23-45-67-89",
+        "sameAs": [
+          "https://www.facebook.com/",
+          "https://www.instagram.com/",
+          "https://www.youtube.com/"
+        ]
+      },
+      {
+        "@type": "TheaterEvent",
+        "name": "Mémoria",
+        "description": "Spectacle pour enfants mêlant théâtre et musique live. Une aventure musicale et poétique dans Memoria, un monde bâti de souvenirs, qui parle de l'amour sous toutes ses formes. De 3 à 11 ans.",
+        "image": "https://www.etoile-filante-spectacle.fr/assets/images/og-image.svg",
+        "url": "https://www.etoile-filante-spectacle.fr/presentation.html",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "typicalAgeRange": "3-11",
+        "audience": { "@type": "Audience", "audienceType": "Familles", "suggestedMinAge": 3 },
+        "performer": { "@type": "PerformingGroup", "name": "Compagnie Étoile Filante" },
+        "organizer": { "@id": "https://www.etoile-filante-spectacle.fr/#compagnie" },
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "price": "9",
+          "priceCurrency": "EUR",
+          "url": "https://www.etoile-filante-spectacle.fr/contact.html"
+        },
+        "location": {
+          "@type": "Place",
+          "name": "En tournée — salles et festivals",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "12 rue des Lucioles",
+            "postalCode": "75011",
+            "addressLocality": "Paris",
+            "addressCountry": "FR"
+          }
+        }
+      }
+    ]
+  }
+  </script>
+  <script src="js/main.js" defer></script>
+  <script src="js/articles.js" defer></script>
+  <script src="js/lapin.js" defer></script>
+</head>
+<body data-page="accueil">
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+  <!-- ==================== EN-TÊTE ==================== -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html" aria-label="Mémoria — Le village des souvenirs perdus — accueil">
+        <img class="brand__mark" src="assets/icons/logo-mark.png" alt="" width="52" height="52">
+        <span class="brand__tagline">Le village des souvenirs perdus</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+      <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a class="nav__link" data-nav="accueil" href="index.html">Accueil</a></li>
+          <li><a class="nav__link" data-nav="actualites" href="actualites.html">Actualités</a></li>
+          <li><a class="nav__link" data-nav="presentation" href="presentation.html">Présentation</a></li>
+          <li><a class="nav__link" data-nav="galerie" href="galerie.html">Galerie</a></li>
+          <li><a class="nav__link" data-nav="documentation" href="documentation.html">Documentation</a></li>
+          <li><a class="nav__link" data-nav="contact" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ==================== PRÉSENTATION COURTE ==================== -->
+    <section class="section intro section--sky section--first" data-notes="5">
+      <!-- Lapin animé : n'apparaît que sur cette section (arrivée en rebond au scroll).
+           Réglages : css/style.css §18 · data-lapin-trigger = "scroll" (défaut ici) | "load" | "hover" -->
+      <img class="lapin-peek"
+           src="assets/images/lapin.jpg"
+           alt="" aria-hidden="true"
+           width="359" height="640"
+           decoding="async"
+           data-lapin
+           data-lapin-trigger="scroll">
+      <div class="container container--narrow">
+        <p class="eyebrow reveal">✦ Spectacle pour enfants · dès 3 ans</p>
+        <h1 class="intro__title reveal">Mémoria</h1>
+        <p class="intro__subtitle reveal">Le village des souvenirs perdus</p>
+        <span class="staff" aria-hidden="true"></span>
+        <p class="lead reveal"><strong>Et si une vieille boîte à musique renfermait tous les souvenirs d'une vie&nbsp;?</strong></p>
+        <p class="intro__text reveal">
+          Marie et Jules découvrent une mystérieuse boîte à musique ayant appartenu à Mélisande,
+          la grand-mère de Marie. Elle ouvre les portes de Memoria, un monde entièrement bâti à
+          partir des souvenirs de Mélisande. Mais Memoria est en danger&nbsp;: les maisons se fissurent et les
+          souvenirs s'effacent. Une aventure musicale et poétique sur l'amour sous toutes ses formes.
+        </p>
+        <div class="btn-row reveal" style="justify-content:center">
+          <a class="btn btn--primary" href="presentation.html">Découvrir le spectacle <span class="btn__arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="contact.html">Nous contacter</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== L'UNIVERS DU SPECTACLE ==================== -->
+    <section class="section section--mint" data-notes="6">
+      <div class="container">
+        <div class="univers-grid">
+          <div class="reveal">
+            <p class="eyebrow">L'univers</p>
+            <h2 class="section-title title-star">Memoria, un village fait de souvenirs</h2>
+            <p>
+              <strong>Mémoria</strong> raconte l'histoire d'un étrange village, Memoria,
+              composé de maisons toutes différentes. Chacune renferme un souvenir de Mélisande&nbsp;:
+              un petit morceau de son histoire, de ses rencontres, de ses joies et de sa vie.
+            </p>
+            <p>
+              Mais Memoria est en danger&nbsp;: certaines maisons se fissurent, d'autres s'effondrent,
+              et avec elles les souvenirs disparaissent peu à peu. Marie, Jules et Pompon parcourent le
+              village pour les raviver et découvrent que la musique, les émotions et les moments
+              partagés peuvent faire renaître ce que le temps semblait vouloir effacer.
+            </p>
+          </div>
+          <figure class="univers-media reveal" data-parallax="0.06">
+            <img src="assets/images/memoria.jpg" alt="Illustration : vue d'ensemble du village de Memoria, ses maisons colorées et son pont de pierre" width="1405" height="1120" loading="lazy">
+            <figcaption class="univers-media__badge">✦ Le village de Memoria</figcaption>
+          </figure>
+        </div>
+
+        <h3 class="mt-2 reveal">Les personnages</h3>
+        <div class="perso-list">
+          <article class="perso-card reveal">
+            <span class="shot" style="aspect-ratio:4/5"><img src="assets/images/marie.jpg" alt="Portrait illustré de Marie" loading="lazy"></span>
+            <div class="perso-card__body"><h3>Marie</h3><p>Douce et curieuse, c'est elle qui part à l'aventure dans Memoria pour aider sa grand-mère Mélisande.</p></div>
+          </article>
+          <article class="perso-card reveal" style="--reveal-delay:80ms">
+            <span class="shot" style="aspect-ratio:4/5"><img src="assets/images/jules.jpg" alt="Portrait illustré de Jules" loading="lazy"></span>
+            <div class="perso-card__body"><h3>Jules</h3><p>À 7 ans, Jules est espiègle et plein d'imagination — le fidèle compagnon de jeu de Marie.</p></div>
+          </article>
+          <article class="perso-card reveal" style="--reveal-delay:160ms">
+            <span class="shot" style="aspect-ratio:4/5"><img src="assets/images/pompon.jpg" alt="Illustration de Pompon, un lapin à la casquette, habitant de Memoria" loading="lazy"></span>
+            <div class="perso-card__body"><h3>Pompon</h3><p>Un lapin à la casquette, aussi drôle qu'imprévisible, que Marie et Jules rencontrent dans Memoria.</p></div>
+          </article>
+          <article class="perso-card reveal" style="--reveal-delay:240ms">
+            <span class="shot" style="aspect-ratio:4/5"><img src="assets/images/melisande.jpg" alt="Illustration de Mélisande, une dame âgée, aux côtés de Marie" loading="lazy"></span>
+            <div class="perso-card__body"><h3>Mélisande</h3><p>La grand-mère de Marie. Ses souvenirs ont donné naissance à Memoria et à son village de maisons.</p></div>
+          </article>
+          <article class="perso-card reveal" style="--reveal-delay:320ms">
+            <span class="shot" style="aspect-ratio:4/5"><img src="assets/images/ridedou2.jpg" alt="Illustration d'un Ridédou, petite créature haute en couleur, habitante de Memoria" loading="lazy"></span>
+            <div class="perso-card__body"><h3>Les Ridédous</h3><p>Les habitants de Memoria, hauts en couleur, chacun avec son caractère et son instrument préféré.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== POURQUOI VENIR ? ==================== -->
+    <section class="section section--indigo" data-notes="7">
+      <div class="container">
+        <p class="eyebrow reveal" style="background:rgba(255,255,255,0.14);color:#aab98d">Pourquoi venir ?</p>
+        <h2 class="section-title reveal">Une sortie qui fait grandir les yeux</h2>
+        <p class="section-intro reveal">Quatre bonnes raisons de réserver vos places (et d'y repenser longtemps après).</p>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">🎵</div>
+            <h3>Une aventure musicale et poétique</h3>
+            <p>Dans Memoria, la musique, les émotions et les moments partagés font renaître les souvenirs que le temps semblait effacer.</p>
+          </article>
+          <article class="card reveal" style="--reveal-delay:80ms">
+            <div class="card__icon" aria-hidden="true">👨‍👩‍👧‍👦</div>
+            <h3>Un spectacle pour toute la famille</h3>
+            <p>De 3 à 11 ans, et leurs parents. Une histoire tendre sur la mémoire et sur l'amour d'une famille, que petits et grands suivent chacun à leur manière.</p>
+          </article>
+          <article class="card reveal" style="--reveal-delay:160ms">
+            <div class="card__icon" aria-hidden="true">🐰</div>
+            <h3>Des personnages attachants</h3>
+            <p>Marie et Pompon, le lapin farfelu de Memoria, forment un duo qu'on n'oublie pas.</p>
+          </article>
+          <article class="card reveal" style="--reveal-delay:240ms">
+            <div class="card__icon" aria-hidden="true">💛</div>
+            <h3>Sur tous les visages de l'amour</h3>
+            <p>Celui d'une famille, d'un grand amour, d'une amitié, et de tous ces petits liens qui traversent une vie et continuent d'exister au-delà des souvenirs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DERNIÈRES ACTUALITÉS ==================== -->
+    <section class="section section--sun" data-notes="5">
+      <div class="container">
+        <p class="eyebrow reveal">Actualités</p>
+        <h2 class="section-title reveal">Les dernières nouvelles de la compagnie</h2>
+        <p class="section-intro reveal">Dates de tournée, coulisses, presse&nbsp;: suivez la vie du spectacle.</p>
+
+        <div class="news-grid" data-articles data-articles-limit="3"></div>
+
+        <div class="btn-row reveal">
+          <a class="btn" href="actualites.html">Toutes les actualités <span class="btn__arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== PIED DE PAGE ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img class="footer-brand__mark" src="assets/icons/logo-mark.png" alt="" width="52" height="52">
+          <p>Mémoria — un spectacle pour enfants plein de magie, de musique et de poésie, à voir en famille de 3 à 11&nbsp;ans.</p>
+          <div class="footer-socials" aria-label="Réseaux sociaux">
+            <a href="https://www.facebook.com/" aria-label="Facebook" rel="noopener" target="_blank">f</a>
+            <a href="https://www.instagram.com/" aria-label="Instagram" rel="noopener" target="_blank">◎</a>
+            <a href="https://www.youtube.com/" aria-label="YouTube" rel="noopener" target="_blank">▶</a>
+          </div>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="presentation.html">Présentation</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>À découvrir</h4>
+          <ul>
+            <li><a href="actualites.html">Actualités</a></li>
+            <li><a href="galerie.html">Galerie photo</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+            <li><a href="presentation.html#infos-pratiques">Infos pratiques</a></li>
+            <li><a href="contact.html">Programmer le spectacle</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Informations</h4>
+          <ul>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+            <li><a href="contact.html">Nous écrire</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Compagnie Étoile Filante — Tous droits réservés.</span>
+        <span>Site conçu comme une invitation au voyage. Photos d'illustration à remplacer.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

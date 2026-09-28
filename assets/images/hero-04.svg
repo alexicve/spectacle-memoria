@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Le Marchand de rêves — photo exemple à remplacer">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24364b"/><stop offset="0.55" stop-color="#5d7183"/><stop offset="1" stop-color="#8e9b7d"/></linearGradient>
+    <radialGradient id="spot" cx="0.3" cy="0.28" r="0.9">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="stars" width="120" height="120" patternUnits="userSpaceOnUse" patternTransform="rotate(8)">
+      <path d="M60 34l6 14 15 1-11 10 4 15-14-8-14 8 4-15-11-10 15-1z" fill="#ffffff" opacity="0.18"/>
+      <circle cx="14" cy="18" r="3" fill="#ffffff" opacity="0.25"/>
+      <circle cx="104" cy="92" r="2.5" fill="#ffffff" opacity="0.22"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g)"/>
+  <rect width="1600" height="900" fill="url(#stars)"/>
+  <rect width="1600" height="900" fill="url(#spot)"/>
+  <g transform="translate(800 450)" text-anchor="middle" font-family="'Trebuchet MS', Verdana, sans-serif">
+    <circle r="60" fill="#ffffff" opacity="0.9"/>
+    <text y="18" font-size="54" fill="#24364b">&#127917;</text>
+    <text y="118" font-size="34" font-weight="700" fill="#ffffff">Le Marchand de rêves</text>
+    <text y="160" font-size="22" fill="#ffffff" opacity="0.92">La rencontre</text>
+    <text y="196" font-size="18" fill="#ffffff" opacity="0.8">PHOTO EXEMPLE &#8212; &#192; REMPLACER &#183; hero-04.svg</text>
+  </g>
+</svg>

@@ -1,0 +1,1601 @@
+/* =========================================================================
+   ÉTOILE FILANTE — Feuille de style principale
+   -------------------------------------------------------------------------
+   Sommaire
+   1.  Variables & thème
+   2.  Base & réinitialisation
+   3.  Typographie
+   4.  Utilitaires & conteneurs
+   5.  Boutons & micro-animations
+   6.  En-tête & navigation (+ menu mobile)
+   7.  Carrousel « pages de livre »
+   8.  Sections page d'accueil
+   9.  Cartes (atouts, actualités)
+   10. Page Actualités & article
+   11. Page Présentation
+   12. Galerie & lightbox
+   13. Page Contact & formulaire
+   14. Pied de page
+   15. Animations d'apparition au scroll
+   16. Responsive
+   17. prefers-reduced-motion
+   ========================================================================= */
+
+/* 1. VARIABLES & THÈME ---------------------------------------------------- */
+/* Palette « couleur.JPEG » :
+   Bleu encre #24364B · Bleu grisé #748A9D · Crème papier #F3EBDD
+   Vieux rose #C98F86 · Ocre doré #C49A52 · Vert sauge #8E9B7D            */
+:root {
+  /* Bleu encre — couleur principale (titres fond, en-tête, pied de page, texte) */
+  --indigo: #24364b;
+  --plum: #33506a;
+  --violet: #35566f;          /* accent interactif (liens, nav) — contraste OK sur crème */
+  --slate: #748a9d;           /* bleu grisé décoratif (bordures, liserés) */
+
+  /* Vieux rose — touche douce + ocre chaud pour les dégradés */
+  --amber: #d8ab73;
+  --coral: #c98f86;
+  --rose: #e7c6c0;
+
+  /* Vert sauge — détails naturels */
+  --turquoise: #8e9b7d;
+  --sky: #b9c4a9;
+  --yellow: #d0d8c1;
+  --sage-deep: #54613f;       /* vert sauge foncé, lisible en texte / accent */
+
+  /* Bleu clair du logo Mémoria — repris sur quelques sections (§2b) */
+  --logo-blue: #bce1de;
+  --logo-blue-deep: #8fc9c4;
+
+  /* Ocre doré — accents, boutons, titres */
+  --gold: #a97f33;
+  --gold-grad: linear-gradient(96deg, #8a672a 0%, #c49a52 30%, #e0c185 52%, #c49a52 74%, #7f5f28 100%);
+
+  /* Crème papier — fonds clairs */
+  --cream: #faf5ec;
+  --paper: #f3ebdd;
+  --paper-edge: #e6dbc6;
+  --white: #ffffff;
+
+  /* Textes */
+  --ink: #24364b;
+  --muted: #5f7486;
+
+  /* Design tokens */
+  --radius-s: 10px;
+  --radius-m: 18px;
+  --radius-l: 28px;
+  --shadow-s: 0 4px 14px rgba(36, 54, 75, 0.10);
+  --shadow-m: 0 12px 34px rgba(36, 54, 75, 0.16);
+  --shadow-l: 0 26px 60px rgba(36, 54, 75, 0.22);
+  --ring: 0 0 0 4px rgba(53, 86, 111, 0.30);
+
+  /* Cursive « stylo plume » (lettres liées) pour les titres & sous-titres ;
+     texte courant et interface dans une sans-serif lisible */
+  --font-title: "Nunito", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  --font-body: "Nunito", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  /* Une seule cursive « stylo plume » pour titres, sous-titres et logo */
+  --font-plume: "Dancing Script", "Segoe Script", "Brush Script MT", cursive;
+  --font-display: var(--font-plume);
+
+  --header-h: 76px;
+  --maxw: 1180px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 2. BASE & RÉINITIALISATION ------------------------------------------------ */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+* { margin: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.075rem);
+  line-height: 1.7;
+  color: var(--ink);
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(1100px 560px at 8% -6%, rgba(142, 155, 125, 0.44), transparent 60%),
+    radial-gradient(950px 520px at 104% 2%, rgba(201, 143, 134, 0.24), transparent 55%),
+    radial-gradient(900px 700px at 50% 118%, rgba(142, 155, 125, 0.30), transparent 62%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg,
+picture { display: block; max-width: 100%; height: auto; }
+
+a { color: var(--violet); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--coral); }
+
+button { font: inherit; cursor: pointer; }
+
+:focus-visible {
+  outline: 3px solid var(--violet);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* 3. TYPOGRAPHIE --------------------------------------------------------- */
+/* Titres, sous-titres ET logo : la même cursive « stylo plume »
+   (Dancing Script), à l'encre dorée. */
+h1, h2, h3, h4 {
+  font-family: var(--font-plume);
+  line-height: 1.24;
+  color: var(--gold);                 /* repli si background-clip:text non géré */
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* Sur fond bleu encre, l'or doit rester lumineux */
+.section--indigo h1,
+.section--indigo h2,
+.section--indigo h3,
+.section--indigo h4 {
+  color: #e6c988;
+  background: linear-gradient(96deg, #cfa961, #f0dcab 50%, #c49a52);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h1 {
+  line-height: 1.14;
+  font-size: clamp(2.4rem, 1.7rem + 3.6vw, 4.2rem);
+}
+h2 {
+  line-height: 1.2;
+  font-size: clamp(1.9rem, 1.35rem + 2.2vw, 2.9rem);
+}
+h3 { font-size: clamp(1.4rem, 1.15rem + 0.9vw, 1.85rem); }
+h4 { font-size: 1.2rem; }
+
+p + p { margin-top: 0.9rem; }
+
+.lead {
+  font-size: clamp(1.1rem, 1rem + 0.6vw, 1.35rem);
+  color: #3c4a5a;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-title);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-size: 0.78rem;
+  color: var(--sage-deep);
+  background: rgba(142, 155, 125, 0.20);
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+}
+
+.section-title { margin-bottom: 0.6rem; }
+.section-intro { max-width: 62ch; color: var(--muted); }
+
+/* Étoile décorative après certains titres */
+.title-star::after {
+  content: "✦";
+  color: var(--turquoise);
+  -webkit-text-fill-color: var(--turquoise);   /* annule l'héritage du titre doré */
+  background: none;
+  margin-left: 0.4rem;
+}
+
+/* 4. UTILITAIRES & CONTENEURS ------------------------------------------ */
+.container {
+  width: min(100% - 2.5rem, var(--maxw));
+  margin-inline: auto;
+}
+.container--narrow { width: min(100% - 2.5rem, 820px); }
+
+.section { padding-block: clamp(3.5rem, 2rem + 7vw, 7rem); }
+
+/* --- Sections colorées pastel ---------------------------------------- */
+/* Chaque variante pose un aplat pastel franc + un liseré doux en haut. */
+.section--tint,
+.section--mint,
+.section--rose,
+.section--sun,
+.section--sky { position: relative; }
+.section--tint::before,
+.section--mint::before,
+.section--rose::before,
+.section--sun::before,
+.section--sky::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--turquoise), var(--rose), var(--turquoise));
+  opacity: 0.7;
+}
+
+.section--tint { background: linear-gradient(180deg, #f1e7d4, #ece0c8); }  /* crème soutenu */
+.section--mint { background: linear-gradient(180deg, #eef1e6, #e3e8d5); }  /* vert sauge pâle */
+.section--rose { background: linear-gradient(180deg, #f7ebe7, #efdcd6); }  /* vieux rose pâle */
+.section--sun  { background: linear-gradient(180deg, #f6ecd8, #efe0c1); }  /* ocre pâle */
+.section--sky  { background: var(--logo-blue); }  /* bleu clair du logo, identique au header */
+
+/* Variante douce sans liseré (sections collées à un .page-head) */
+.section--wash { background: linear-gradient(180deg, #f2ede2, #ece3d3); }
+
+.section--indigo {
+  background: radial-gradient(1000px 500px at 20% 0%, #35566f, transparent 60%), var(--indigo);
+  color: #eef2f6;
+}
+.section--indigo .section-intro { color: #cdd8e2; }
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -80px;
+  z-index: 1200;
+  background: var(--indigo);
+  color: #fff;
+  padding: 0.7rem 1.1rem;
+  border-radius: 0 0 12px 12px;
+  transition: top 0.25s var(--ease);
+}
+.skip-link:focus { top: 0; color: #fff; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+.text-center { text-align: center; }
+.mt-2 { margin-top: 2rem; }
+
+/* 5. BOUTONS & MICRO-ANIMATIONS -------------------------------------- */
+.btn {
+  --btn-bg: var(--violet);
+  --btn-fg: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.6rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: var(--shadow-s);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background-color 0.2s var(--ease);
+  will-change: transform;
+}
+.btn:hover {
+  transform: translateY(-3px) rotate(-0.6deg);
+  box-shadow: var(--shadow-m);
+  color: var(--btn-fg);
+}
+.btn:active { transform: translateY(-1px) scale(0.99); }
+
+.btn--primary { --btn-bg: linear-gradient(120deg, #c49a52, #d8ab73); color: #2a2114; }
+.btn--primary:hover { --btn-bg: linear-gradient(120deg, #d0a960, #e2c188); }
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--indigo);
+  border-color: rgba(36, 54, 75, 0.28);
+  box-shadow: none;
+}
+.btn--ghost:hover { border-color: var(--violet); background: rgba(53, 86, 111, 0.10); }
+
+.btn--on-dark { --btn-fg: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.08); }
+.btn--on-dark:hover { background: rgba(255,255,255,0.16); }
+
+.btn .btn__arrow { transition: transform 0.2s var(--ease); }
+.btn:hover .btn__arrow { transform: translateX(4px); }
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.8rem;
+}
+
+.link-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-title);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--sage-deep);
+}
+.link-more::after { content: "→"; transition: transform 0.2s var(--ease); }
+.link-more:hover::after { transform: translateX(4px); }
+
+/* 6. EN-TÊTE & NAVIGATION -------------------------------------------- */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1000;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  background: var(--logo-blue);   /* même bleu uni que la première section */
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid rgba(36, 54, 75, 0.10);
+  transition: height 0.3s var(--ease), background-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.site-header.is-scrolled {
+  height: 62px;
+  background: var(--logo-blue);
+  box-shadow: var(--shadow-s);
+}
+/* Nuages qui dérivent dans l'en-tête, comme sur le logo. */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.85;
+  background-image:
+    radial-gradient(70px 20px at 8% 45%, rgba(255, 255, 255, 0.95), transparent 72%),
+    radial-gradient(105px 26px at 28% 68%, rgba(255, 255, 255, 0.8), transparent 72%),
+    radial-gradient(80px 22px at 54% 28%, rgba(255, 255, 255, 0.92), transparent 72%),
+    radial-gradient(115px 28px at 78% 58%, rgba(255, 255, 255, 0.78), transparent 72%);
+  background-repeat: repeat-x;
+  background-size: 460px 100%;
+  animation: header-clouds-drift 26s linear infinite;
+}
+@keyframes header-clouds-drift {
+  from { background-position: 0 0; }
+  to   { background-position: -460px 0; }
+}
+.site-header__inner {
+  width: min(100% - 2.5rem, var(--maxw));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  min-width: 0;
+}
+.brand__mark {
+  height: 44px;
+  width: auto;
+  flex: none;
+  transition: height 0.3s var(--ease);
+}
+.site-header.is-scrolled .brand__mark { height: 38px; }
+.brand__name {
+  font-family: var(--font-plume);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 0.85rem + 1vw, 1.6rem);
+  line-height: 1.02;
+  letter-spacing: 0.3px;
+  color: var(--gold);
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  max-width: 14ch;             /* laisse le titre passer sur 2 lignes sans pousser la nav */
+  transition: font-size 0.3s var(--ease);
+}
+.site-header.is-scrolled .brand__name { font-size: clamp(0.95rem, 0.8rem + 0.7vw, 1.25rem); }
+@media (max-width: 520px) {
+  .brand__name { font-size: 1rem; max-width: 11ch; }
+}
+
+/* Sous-titre du spectacle, à côté du nom dans l'en-tête — seulement quand la
+   largeur le permet (au-delà, il laisserait trop peu de place au menu). */
+.brand__tagline {
+  display: none;
+  font-family: var(--font-plume);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+  color: var(--muted);
+  white-space: nowrap;
+  padding-top: 0.2rem;
+}
+@media (min-width: 1040px) {
+  .brand__tagline { display: block; }
+}
+.site-header.is-scrolled .brand__tagline { display: none; }
+
+.nav { display: flex; align-items: center; }
+.nav__list {
+  display: flex;
+  gap: 0.35rem;
+  list-style: none;
+  padding: 0;
+}
+.nav__link {
+  position: relative;
+  display: inline-block;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  font-family: var(--font-title);
+  font-weight: 500;
+  color: var(--indigo);
+  text-decoration: none;
+  transition: color 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--turquoise), var(--amber));
+  transform: translateX(-50%);
+  transition: width 0.25s var(--ease);
+}
+.nav__link:hover { color: var(--violet); background: rgba(53, 86, 111, 0.10); }
+.nav__link:hover::after,
+.nav__link[aria-current="page"]::after { width: 22px; }
+.nav__link[aria-current="page"] { color: var(--violet); }
+
+.nav-toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border: 2px solid rgba(36, 54, 75, 0.20);
+  border-radius: 14px;
+  background: var(--white);
+  position: relative;
+}
+.nav-toggle__bar,
+.nav-toggle__bar::before,
+.nav-toggle__bar::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 22px;
+  height: 2.6px;
+  border-radius: 3px;
+  background: var(--indigo);
+  transform: translateX(-50%);
+  transition: transform 0.3s var(--ease), opacity 0.2s var(--ease), top 0.3s var(--ease);
+}
+.nav-toggle__bar { top: 50%; margin-top: -1px; }
+.nav-toggle__bar::before { top: -7px; }
+.nav-toggle__bar::after { top: 7px; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar { transform: translateX(-50%) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar::before { top: 0; transform: translateX(-50%) rotate(90deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar::after { top: 0; opacity: 0; }
+
+/* 7. CARROUSEL « PAGE DE LIVRE » -------------------------------------- */
+.hero {
+  position: relative;
+  margin-top: var(--header-h);
+  padding: clamp(1rem, 0.5rem + 2vw, 2.4rem) 0 clamp(2rem, 1rem + 3vw, 3.5rem);
+}
+
+/* Cadre simple : une carte centrée. La page tourne au changement d'image. */
+.book {
+  position: relative;
+  width: min(100% - 2.5rem, 1040px);
+  margin-inline: auto;
+  aspect-ratio: 16 / 9;
+  perspective: 2200px;
+  perspective-origin: 50% 40%;
+  border-radius: var(--radius-l);
+  overflow: hidden;                /* clippe la page qui déborde pendant la rotation */
+  box-shadow: var(--shadow-l);
+  background: var(--paper-edge);
+  touch-action: pan-y;
+}
+/* fine tranche de « reliure » sur le bord gauche, pour l'idée du livre */
+.book::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 12px;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(36, 54, 75, 0.30), rgba(36, 54, 75, 0) 100%);
+}
+
+/* overflow:hidden et preserve-3d ne peuvent pas cohabiter sur le même
+   élément : la scène 3D est donc un enfant sans overflow. */
+.book__stage {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  background: var(--paper);
+}
+
+/* Couche du bas : image de destination, révélée pendant que la page tourne */
+.book__base {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.book__base img { width: 100%; height: 100%; object-fit: cover; }
+
+/* La page qui se tourne, articulée sur la reliure (bord gauche) */
+.book__flip {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  transform: rotateY(0deg);
+  will-change: transform;
+}
+.book__flip.is-animating { transition: transform 1.6s var(--ease), opacity 0.25s linear; }
+
+.book__face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+.book__face img { width: 100%; height: 100%; object-fit: cover; }
+.book__face--front { transform: rotateY(0deg); }
+/* Dos de la page : image suivante « imprimée » au verso, façon livre illustré */
+.book__face--back { transform: rotateY(180deg); background: var(--paper); }
+.book__face--back .book__unmirror { position: absolute; inset: 0; transform: scaleX(-1); }
+.book__face--back .book__unmirror img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Ombre douce projetée par la page pendant qu'elle se tourne */
+.book__flip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(0,0,0,0) 52%, rgba(0,0,0,0.32) 85%, rgba(0,0,0,0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.6s var(--ease);
+}
+.book__flip.is-turning::after { opacity: 1; }
+/* Voile de courbure sur la page (léger dégradé qui suit la pliure) */
+.book__flip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(255,255,255,0.18), rgba(255,255,255,0) 22%, rgba(0,0,0,0) 78%, rgba(0,0,0,0.14));
+  opacity: 0;
+  transition: opacity 0.6s var(--ease);
+}
+.book__flip.is-turning::before { opacity: 1; }
+
+/* Légende de la diapo */
+.book__caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  padding: 2.4rem 1.6rem 1.3rem;
+  color: #fff;
+  font-family: var(--font-title);
+  font-weight: 500;
+  font-size: clamp(1rem, 0.9rem + 0.6vw, 1.35rem);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.55);
+  background: linear-gradient(180deg, transparent, rgba(24, 36, 51, 0.74));
+  border-radius: 0 0 var(--radius-l) var(--radius-l);
+  pointer-events: none;
+}
+
+/* Contrôles */
+.book__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(250, 245, 236, 0.92);
+  color: var(--indigo);
+  box-shadow: var(--shadow-m);
+  font-size: 1.4rem;
+  transition: transform 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+.book__btn:hover { transform: translateY(-50%) scale(1.08); background: #fff; }
+.book__btn--prev { left: 12px; }
+.book__btn--next { right: 12px; }
+
+/* Pastilles : dans le flux, sous le livre (le livre a overflow:hidden) */
+.book__dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 20px auto 0;
+}
+.book__dot {
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(36, 54, 75, 0.24);
+  transition: transform 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+.book__dot:hover { background: rgba(36, 54, 75, 0.42); }
+.book__dot[aria-current="true"] {
+  background: linear-gradient(120deg, var(--turquoise), var(--amber));
+  transform: scale(1.35);
+}
+
+/* 8. SECTIONS PAGE D'ACCUEIL ----------------------------------------- */
+.intro {
+  text-align: center;
+  padding-top: clamp(2.5rem, 1.5rem + 4vw, 4rem);
+  /* z-index (même à 0) transforme .intro en contexte d'empilement à part
+     entière : le ::after à z-index:-1 ci-dessous reste ainsi cantonné
+     juste derrière SON PROPRE fond, comme dans le header, au lieu de
+     s'échapper derrière toute la page (nuages invisibles sinon). */
+  z-index: 0;
+}
+/* Mêmes nuages qui dérivent que dans l'en-tête (§ .site-header::before),
+   posés en ::after car ::before sert déjà au liseré coloré du haut de
+   section. Couleur de fond de la section : voir .section--sky. */
+.intro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.85;
+  background-image:
+    radial-gradient(70px 20px at 8% 45%, rgba(255, 255, 255, 0.95), transparent 72%),
+    radial-gradient(105px 26px at 28% 68%, rgba(255, 255, 255, 0.8), transparent 72%),
+    radial-gradient(80px 22px at 54% 28%, rgba(255, 255, 255, 0.92), transparent 72%),
+    radial-gradient(115px 28px at 78% 58%, rgba(255, 255, 255, 0.78), transparent 72%);
+  background-repeat: repeat-x;
+  background-size: 460px 100%;
+  animation: header-clouds-drift 26s linear infinite;
+}
+.intro__title { margin: 0.6rem 0 0.4rem; }
+.intro__subtitle {
+  font-family: var(--font-plume);
+  font-weight: 600;
+  font-size: clamp(1.15rem, 1rem + 1vw, 1.5rem);
+  color: var(--violet);
+  margin: -0.3rem 0 0.6rem;
+}
+.intro__text { max-width: 60ch; margin-inline: auto; color: #3c4a5a; }
+
+.univers-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(1.5rem, 1rem + 3vw, 3.5rem);
+  align-items: center;
+}
+.univers-media {
+  position: relative;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: var(--shadow-l);
+}
+.univers-media,
+.univers-media[data-parallax] {
+  transform: rotate(-1.4deg) translate3d(0, var(--parallax-y, 0), 0);
+}
+.univers-media img { width: 100%; aspect-ratio: 7/5; object-fit: cover; }
+.univers-media__badge {
+  position: absolute;
+  right: 14px; bottom: 14px;
+  background: var(--yellow);
+  color: var(--indigo);
+  font-family: var(--font-title);
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  box-shadow: var(--shadow-s);
+}
+
+.perso-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
+  margin-top: 2.4rem;
+}
+.perso-card {
+  background: var(--white);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-s);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.perso-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-m); }
+/* Le cadre-photo arrondit lui-même son coin haut : pas d'overflow:hidden sur
+   la carte entière, pour ne jamais rogner les jambages/fioritures du titre doré. */
+.perso-card .shot { border-radius: var(--radius-m) var(--radius-m) 0 0; }
+.perso-card img { aspect-ratio: 4/5; object-fit: cover; width: 100%; }
+.perso-card__body { padding: 0.9rem 1rem 1.1rem; }
+.perso-card__body h3 { font-size: 1.15rem; margin-bottom: 0.15rem; }
+.perso-card__body p { font-size: 0.95rem; color: var(--muted); }
+
+/* 9. CARTES -------------------------------------------------------------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.4rem;
+  margin-top: 2.6rem;
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid rgba(36, 54, 75, 0.08);
+  border-radius: var(--radius-l);
+  padding: 1.6rem 1.4rem;
+  box-shadow: var(--shadow-s);
+  transition: transform 0.28s var(--ease), box-shadow 0.28s var(--ease);
+  overflow: hidden;
+}
+/* Quand une carte contient un bouton (ex. Documentation), il se cale tout en
+   bas : les boutons restent alignés même si les descriptions ont des
+   longueurs différentes. */
+.card .btn-row { margin-top: auto; padding-top: 1rem; justify-content: center; }
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--turquoise), var(--sky), var(--amber), var(--coral));
+}
+.card:hover { transform: translateY(-8px) rotate(0.4deg); box-shadow: var(--shadow-m); }
+.card__icon {
+  width: 56px; height: 56px;
+  display: grid; place-items: center;
+  border-radius: 16px;
+  background: rgba(142, 155, 125, 0.18);
+  font-size: 1.7rem;
+  margin-bottom: 0.9rem;
+}
+.card h3 { font-size: 1.2rem; margin-bottom: 0.3rem; }
+.card p { color: var(--muted); font-size: 0.98rem; }
+
+/* Cartes actualités */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.6rem;
+  margin-top: 2.6rem;
+}
+.news-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-s);
+  transition: transform 0.28s var(--ease), box-shadow 0.28s var(--ease);
+}
+.news-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-m); }
+/* Coin haut arrondi sur la vignette elle-même : pas d'overflow:hidden sur la
+   carte entière, pour ne jamais rogner le titre doré sous la photo. */
+.news-card__media { position: relative; overflow: hidden; border-radius: var(--radius-l) var(--radius-l) 0 0; }
+.news-card__media img {
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  width: 100%;
+  transition: transform 0.5s var(--ease);
+}
+.news-card:hover .news-card__media img { transform: scale(1.06); }
+.news-card__cat {
+  position: absolute;
+  left: 12px; top: 12px;
+  background: var(--indigo);
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+}
+.news-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.2rem 1.3rem 1.4rem;
+  flex: 1;
+}
+.news-card__date {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--violet);
+  font-weight: 700;
+}
+.news-card__body h3 { font-size: 1.22rem; }
+.news-card__excerpt { color: var(--muted); font-size: 0.97rem; }
+.news-card__body .link-more { margin-top: auto; }
+
+/* 10. PAGE ACTUALITÉS & ARTICLE -------------------------------------- */
+.page-head {
+  margin-top: var(--header-h);
+  padding: clamp(3rem, 2rem + 5vw, 5.5rem) 0 clamp(2rem, 1.5rem + 3vw, 3.5rem);
+  text-align: center;
+  background:
+    radial-gradient(700px 360px at 12% -10%, rgba(142, 155, 125, 0.45), transparent 62%),
+    radial-gradient(760px 380px at 92% -14%, rgba(201, 143, 134, 0.40), transparent 62%),
+    linear-gradient(180deg, #f1ede2, #eae1d1);
+  border-bottom: 1px solid rgba(36, 54, 75, 0.08);
+}
+.page-head p { max-width: 60ch; margin: 0.8rem auto 0; color: var(--muted); }
+
+.article {
+  margin-top: var(--header-h);
+  padding-block: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
+}
+/* Colonne de lecture un peu plus large que .container--narrow (820px),
+   pour que le titre et le texte de l'article aient de l'air. */
+.article.container--narrow { width: min(100% - 2.5rem, 920px); }
+.article > .eyebrow { margin-bottom: 1.1rem; }
+.article__hero {
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: var(--shadow-l);
+  margin-bottom: 2rem;
+}
+.article__hero img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+.article__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+}
+.article__meta .tag {
+  background: rgba(142, 155, 125, 0.24);
+  color: #4d5a3a;
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+}
+.article__body { font-size: 1.06rem; }
+.article__body h2 { margin: 1.8rem 0 0.6rem; }
+.article__body h3 { margin: 1.4rem 0 0.4rem; }
+.article__body ul { margin: 0.6rem 0 0.6rem 1.2rem; }
+.article__body img { border-radius: var(--radius-m); margin: 1.4rem 0; box-shadow: var(--shadow-s); }
+.article__back { margin-top: 2.5rem; }
+
+/* 11. PAGE PRÉSENTATION -------------------------------------------------- */
+.feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 1rem + 3vw, 3.5rem);
+  align-items: center;
+}
+.feature + .feature { margin-top: clamp(2.5rem, 1.5rem + 4vw, 5rem); }
+.feature:nth-child(even) .feature__media { order: 2; }
+.feature__media {
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: var(--shadow-l);
+}
+.feature__media img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.feature__body h2 { margin-bottom: 0.5rem; }
+
+/* --- Résumé du spectacle : colonne de lecture « livre de contes » + lettrine --- */
+.synopsis {
+  max-width: 70ch;
+  margin-inline: auto;
+  text-align: center;
+}
+.synopsis > .eyebrow { margin-bottom: 0.7rem; }
+.synopsis > h2 { margin-bottom: 1.4rem; }
+.synopsis__text { text-align: left; }
+.synopsis__text p + p { margin-top: 1rem; }
+
+/* Lettrine sur la première majuscule, comme dans les vieux contes */
+.synopsis__text .has-dropcap::first-letter {
+  float: left;
+  font-family: var(--font-plume);
+  font-weight: 700;
+  font-size: 4.4em;
+  line-height: 0.78;
+  margin: 0.04em 0.12em 0 0;
+  padding-top: 0.04em;
+  color: var(--gold);
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media (max-width: 600px) {
+  .synopsis__text .has-dropcap::first-letter { font-size: 3.5em; }
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.1rem;
+  margin-top: 2.4rem;
+}
+.info-item {
+  background: var(--white);
+  border-radius: var(--radius-m);
+  padding: 1.2rem;
+  box-shadow: var(--shadow-s);
+  text-align: center;
+}
+.info-item__k {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+.info-item__label {
+  font-family: var(--font-title);
+  font-weight: 600;
+  color: var(--indigo);
+}
+.info-item__value { color: var(--muted); font-size: 0.95rem; }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.3rem;
+  margin-top: 2.4rem;
+}
+.team-card {
+  background: var(--white);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-s);
+  text-align: center;
+  transition: transform 0.25s var(--ease);
+}
+.team-card:hover { transform: translateY(-6px); }
+/* Coin haut arrondi sur la photo elle-même : pas d'overflow:hidden sur la
+   carte entière, pour ne jamais rogner le titre doré en dessous. */
+.team-card img { aspect-ratio: 1/1; object-fit: cover; width: 100%; border-radius: var(--radius-m) var(--radius-m) 0 0; }
+.team-card__body { padding: 1rem; }
+.team-card__body h3 { font-size: 1.1rem; }
+.team-card__body p { color: var(--muted); font-size: 0.9rem; }
+
+/* 12. GALERIE & LIGHTBOX --------------------------------------------- */
+/* --- Onglets de la galerie ------------------------------------------- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0;
+}
+.tabs__btn {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--muted);
+  background: var(--white);
+  border: 1px solid rgba(36, 54, 75, 0.14);
+  border-radius: 999px;
+  padding: 0.55rem 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.tabs__btn:hover { border-color: var(--violet); color: var(--violet); }
+.tabs__btn.is-active {
+  color: #fff;
+  background: linear-gradient(120deg, var(--violet), var(--indigo));
+  border-color: transparent;
+}
+.gallery-panel[hidden] { display: none; }
+.gallery-empty {
+  margin-top: 2.4rem;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--muted);
+  background: var(--white);
+  border-radius: var(--radius-l);
+  border: 1px dashed rgba(36, 54, 75, 0.2);
+}
+.gallery-empty__icon { font-size: 2.2rem; display: block; margin-bottom: 0.6rem; }
+
+.gallery {
+  columns: 3 260px;
+  column-gap: 1rem;
+  margin-top: 2.4rem;
+}
+.gallery__item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow-s);
+  display: block;
+  width: 100%;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.gallery__item:hover { transform: translateY(-4px) scale(1.01); box-shadow: var(--shadow-m); }
+.gallery__item img { width: 100%; display: block; }
+.gallery__cap {
+  display: block;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: left;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.6rem, 2vw, 2rem);
+  background: rgba(20, 30, 42, 0.90);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
+}
+.lightbox.is-open { opacity: 1; visibility: visible; }
+.lightbox__figure {
+  margin: 0;
+  max-width: min(1100px, 96vw);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transform: scale(0.94);
+  transition: transform 0.3s var(--ease);
+}
+.lightbox.is-open .lightbox__figure { transform: scale(1); }
+.lightbox__img {
+  max-height: 82vh;
+  width: auto;
+  margin-inline: auto;
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-l);
+  background: #000;
+}
+.lightbox__caption { color: #e8edf3; text-align: center; font-size: 0.95rem; }
+.lightbox__btn {
+  position: absolute;
+  width: 52px; height: 52px;
+  display: grid; place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  font-size: 1.5rem;
+  transition: background-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.lightbox__btn:hover { background: rgba(255,255,255,0.28); transform: scale(1.08); }
+.lightbox__btn--close { top: 18px; right: 18px; }
+.lightbox__btn--prev { left: 14px; top: 50%; transform: translateY(-50%); }
+.lightbox__btn--next { right: 14px; top: 50%; transform: translateY(-50%); }
+.lightbox__btn--prev:hover, .lightbox__btn--next:hover { transform: translateY(-50%) scale(1.08); }
+.lightbox__count {
+  position: absolute;
+  top: 22px; left: 22px;
+  color: #c2cfdb;
+  font-family: var(--font-title);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+/* 13. PAGE CONTACT & FORMULAIRE ------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(1.5rem, 1rem + 3vw, 3rem);
+  align-items: start;
+}
+.contact-info {
+  background: var(--white);
+  border-radius: var(--radius-l);
+  padding: 1.8rem;
+  box-shadow: var(--shadow-s);
+}
+.contact-info ul { list-style: none; padding: 0; display: grid; gap: 1rem; }
+.contact-info li { display: flex; gap: 0.8rem; align-items: flex-start; }
+.contact-info .ico {
+  flex: none;
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: rgba(142, 155, 125, 0.18);
+  font-size: 1.2rem;
+}
+.contact-info a { text-decoration: none; font-weight: 700; }
+.socials { display: flex; gap: 0.6rem; margin-top: 1.4rem; }
+.socials a {
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--indigo);
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-title);
+  font-weight: 700;
+  transition: transform 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+.socials a:hover { transform: translateY(-3px) rotate(-6deg); background: var(--violet); }
+
+.form {
+  background: var(--white);
+  border-radius: var(--radius-l);
+  padding: 1.8rem;
+  box-shadow: var(--shadow-s);
+  display: grid;
+  gap: 1.1rem;
+}
+.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+.field { display: grid; gap: 0.35rem; }
+.field label { font-family: var(--font-title); font-weight: 600; color: var(--indigo); font-size: 0.95rem; }
+.field label .req { color: var(--coral); }
+.field input,
+.field select,
+.field textarea {
+  font: inherit;
+  padding: 0.75rem 0.9rem;
+  border: 2px solid rgba(36, 54, 75, 0.16);
+  border-radius: var(--radius-s);
+  background: var(--cream);
+  color: var(--ink);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--violet);
+  box-shadow: var(--ring);
+}
+.field textarea { min-height: 140px; resize: vertical; }
+.form__status {
+  font-weight: 700;
+  border-radius: var(--radius-s);
+  padding: 0.8rem 1rem;
+  display: none;
+}
+.form__status.is-ok { display: block; background: rgba(142, 155, 125, 0.24); color: #4d5a3a; }
+.form__status.is-err { display: block; background: rgba(201, 143, 134, 0.28); color: #8f4a44; }
+
+.map-wrap {
+  margin-top: 2.6rem;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: var(--shadow-m);
+  position: relative;
+  aspect-ratio: 16/7;
+  background: var(--paper);
+}
+.map-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+.map-wrap__placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 0.4rem;
+  color: var(--muted);
+  padding: 1.5rem;
+}
+.map-wrap__placeholder strong { color: var(--indigo); font-family: var(--font-title); font-size: 1.1rem; }
+
+/* 14. PIED DE PAGE ---------------------------------------------------- */
+.site-footer {
+  position: relative;
+  background: radial-gradient(800px 400px at 10% 0%, #35566f, transparent 60%), var(--indigo);
+  color: #d6dee6;
+  padding: clamp(3rem, 2rem + 4vw, 4.5rem) 0 1.6rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 2rem;
+}
+.site-footer h4 {
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+.site-footer a { color: #d6dee6; text-decoration: none; }
+.site-footer a:hover { color: var(--yellow); }
+.site-footer ul { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+.footer-brand__mark {
+  height: 46px;
+  width: auto;
+  vertical-align: middle;
+}
+.footer-brand__name {
+  font-family: var(--font-plume);
+  font-weight: 700;
+  font-size: 1.65rem;
+  line-height: 1.1;
+  margin-left: 0.55rem;
+  color: var(--gold);
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.footer-brand p { color: #c1cdd8; font-size: 1rem; max-width: 34ch; margin-top: 0.9rem; }
+.footer-socials { display: flex; gap: 0.5rem; margin-top: 1rem; }
+.footer-socials a {
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  font-family: var(--font-title);
+  font-weight: 700;
+  transition: background-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.footer-socials a:hover { background: rgba(255,255,255,0.22); transform: translateY(-3px); }
+.footer-bottom {
+  margin-top: 2.5rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(255,255,255,0.14);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #a9b6c2;
+}
+.footer-bottom a { text-decoration: underline; }
+
+/* 15. ANIMATIONS D'APPARITION AU SCROLL ----------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Petit flottement décoratif (étoiles du hero, badges) */
+.floaty { animation: floaty 6s ease-in-out infinite; }
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Parallaxe légère : JS ne pilote que --parallax-y, le transform reste ici */
+[data-parallax] {
+  will-change: transform;
+  transform: translate3d(0, var(--parallax-y, 0), 0);
+}
+
+/* --- Animations « musique » au scroll ---------------------------------
+   Notes qui s'envolent, portée qui se trace, mini-égaliseur.
+   Décoratif (aria-hidden) et coupé en reduced-motion.  */
+
+/* Couche de notes flottantes, injectée par main.js dans [data-notes] */
+[data-notes] { position: relative; }
+.note-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.note-layer + * { position: relative; z-index: 1; }
+.section[data-notes] > .container { position: relative; z-index: 1; }
+
+.note {
+  position: absolute;
+  bottom: -8%;
+  font-size: var(--n-size, 1.6rem);
+  line-height: 1;
+  color: var(--n-color, var(--violet));
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.note-layer.is-playing .note {
+  animation: note-rise var(--n-dur, 9s) linear infinite;
+  animation-delay: var(--n-delay, 0s);
+}
+@keyframes note-rise {
+  0%   { transform: translateY(0) rotate(-8deg) scale(0.9);   opacity: 0; }
+  12%  { opacity: 0.55; }
+  70%  { opacity: 0.45; }
+  100% { transform: translateY(-120vh) rotate(14deg) scale(1.1); opacity: 0; }
+}
+
+/* Portée musicale qui se dessine sous un titre : <span class="staff"></span> */
+.staff {
+  display: block;
+  height: 22px;
+  margin: 0.6rem 0 0.2rem;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    currentColor 0, currentColor 1.5px,
+    transparent 1.5px, transparent 6px);
+  color: var(--turquoise);
+  opacity: 0.55;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 1.1s var(--ease) 0.15s;
+}
+.reveal.is-visible .staff,
+.is-visible > .staff,
+.staff.is-visible { transform: scaleX(1); }
+
+/* Mini-égaliseur : <span class="equalizer"><i></i>×5</span> */
+.equalizer {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 20px;
+  margin-left: 0.5rem;
+  vertical-align: -4px;
+}
+.equalizer i {
+  width: 4px;
+  height: 30%;
+  border-radius: 2px;
+  background: currentColor;
+  color: var(--coral);
+  opacity: 0.85;
+}
+.equalizer.is-playing i { animation: eq-bounce 1s ease-in-out infinite; }
+.equalizer i:nth-child(2) { color: var(--violet); }
+.equalizer i:nth-child(3) { color: var(--turquoise); }
+.equalizer i:nth-child(4) { color: var(--coral); }
+.equalizer i:nth-child(5) { color: var(--violet); }
+.equalizer.is-playing i:nth-child(1) { animation-delay: -0.9s; }
+.equalizer.is-playing i:nth-child(2) { animation-delay: -0.4s; }
+.equalizer.is-playing i:nth-child(3) { animation-delay: -0.7s; }
+.equalizer.is-playing i:nth-child(4) { animation-delay: -0.2s; }
+.equalizer.is-playing i:nth-child(5) { animation-delay: -0.55s; }
+@keyframes eq-bounce {
+  0%, 100% { height: 25%; }
+  50%      { height: 100%; }
+}
+
+/* 16. RESPONSIVE --------------------------------------------------------- */
+@media (max-width: 940px) {
+  .univers-grid,
+  .feature,
+  .contact-grid { grid-template-columns: 1fr; }
+  .feature:nth-child(even) .feature__media { order: 0; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 860px) {
+  :root { --header-h: 66px; }
+
+  .nav-toggle { display: block; }
+
+  .nav {
+    position: fixed;
+    inset: var(--header-h) 0 auto 0;
+    background: rgba(250, 245, 236, 0.98);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(36, 54, 75, 0.12);
+    box-shadow: var(--shadow-m);
+    padding: 0.5rem 1rem 1rem;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 0.4s var(--ease);
+  }
+  .nav.is-open { clip-path: inset(0 0 0 0); }
+
+  .nav__list {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .nav__link {
+    display: block;
+    padding: 0.9rem 0.8rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), background-color 0.2s var(--ease);
+  }
+  .nav.is-open .nav__link {
+    opacity: 1;
+    transform: none;
+  }
+  .nav.is-open .nav__list li:nth-child(1) .nav__link { transition-delay: 0.06s; }
+  .nav.is-open .nav__list li:nth-child(2) .nav__link { transition-delay: 0.10s; }
+  .nav.is-open .nav__list li:nth-child(3) .nav__link { transition-delay: 0.14s; }
+  .nav.is-open .nav__list li:nth-child(4) .nav__link { transition-delay: 0.18s; }
+  .nav.is-open .nav__list li:nth-child(5) .nav__link { transition-delay: 0.22s; }
+  .nav.is-open .nav__list li:nth-child(6) .nav__link { transition-delay: 0.26s; }
+  .nav__link::after { display: none; }
+
+  .book__btn--prev { left: 4px; }
+  .book__btn--next { right: 4px; }
+  .book__btn { width: 44px; height: 44px; font-size: 1.15rem; }
+
+  .form__row { grid-template-columns: 1fr; }
+  .gallery { columns: 2 150px; }
+}
+
+@media (max-width: 620px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .footer-bottom { flex-direction: column; }
+}
+
+@media (max-width: 460px) {
+  .gallery { columns: 1; }
+  .btn-row .btn { width: 100%; }
+  .book__btn { width: 40px; height: 40px; }
+  body { background-attachment: scroll; }
+}
+
+/* 17. PREFERS-REDUCED-MOTION --------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  /* Le carrousel se contente d'échanger l'image, sans rotation 3D */
+  .book__flip { transform: none !important; }
+  .book__flip.is-animating { transition: none !important; }
+  .book__flip::after,
+  .book__flip::before { display: none; }
+  /* Animations « boîte à musique » : on garde le décor, on coupe le mouvement */
+  .note-layer { display: none; }
+  .staff { transform: scaleX(1); transition: none; }
+  .equalizer i { height: 60%; animation: none !important; }
+}
+
+/* 18. LAPIN ANIMÉ (corps entier, arrivée en rebond) -------------------
+   Élément décoratif placé DANS la 2ᵉ section de l'accueil (« Mémoria ») :
+   posé à droite, un peu en oblique. Quand la section entre à
+   l'écran il surgit du bord droit avec un rebond (dépasse, revient, se cale)
+   puis repart avec la section au scroll. 100 % `transform` → composé GPU.
+
+   Réglages (inline `style="..."` sur l'élément ou dans une règle) :
+     --lapin-size     : largeur du lapin             (défaut clamp(150px,20vw,260px))
+     --lapin-gap      : marge depuis le bord droit    (défaut 2vw)
+     --lapin-bottom   : marge depuis le bas de la section (défaut 4%)
+     --lapin-tilt     : inclinaison / oblique         (défaut -8deg)
+     --lapin-pop      : échelle de départ             (défaut 0.8)
+     --lapin-duration : durée du rebond d'entrée      (défaut 1.3s)
+     --lapin-delay    : attente avant l'entrée        (défaut 0.2s)
+   ------------------------------------------------------------------------- */
+.lapin-peek {
+  position: absolute;                  /* ancré à la section, pas au viewport */
+  left: auto;
+  right: var(--lapin-gap, 2vw);
+  bottom: var(--lapin-bottom, 4%);
+  width: var(--lapin-size, clamp(150px, 20vw, 260px));
+  height: auto;                        /* image entière, à l'endroit */
+  z-index: 4;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  opacity: 0;                          /* rien avant le déclenchement : aucun flash */
+  transform-origin: 80% 60%;
+  /* état initial = 0% de l'animation : hors champ à droite, en oblique, « au fond » */
+  transform: translate3d(160%, 0, 0) rotate(var(--lapin-tilt, -8deg)) scale(var(--lapin-pop, 0.8));
+}
+@media (max-width: 900px) {
+  .lapin-peek { --lapin-size: clamp(110px, 22vw, 170px); }
+}
+
+/* Le fond blanc du JPEG s'efface sur fond clair.
+   Passe à un PNG transparent → cette règle ne s'applique plus (rien à changer). */
+.lapin-peek[src$=".jpg"],
+.lapin-peek[src$=".jpeg"] { mix-blend-mode: multiply; }
+
+/* Classe ajoutée par js/lapin.js : le lapin surgit du bord droit avec un rebond. */
+.lapin-peek--go {
+  will-change: transform, opacity;
+  animation: lapin-bounce-in var(--lapin-duration, 1.3s)
+             cubic-bezier(0.34, 1.25, 0.64, 1)
+             var(--lapin-delay, 0.2s) both;
+}
+
+@keyframes lapin-bounce-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(160%, 0, 0)
+               rotate(var(--lapin-tilt, -8deg)) scale(var(--lapin-pop, 0.8));
+  }
+  24% { opacity: 1; }
+  56% {                                                   /* surgit trop loin / trop gros */
+    opacity: 1;
+    transform: translate3d(-8%, 0, 0)
+               rotate(var(--lapin-tilt, -8deg)) scale(1.05);
+  }
+  74% {                                                   /* rebond vers l'extérieur */
+    transform: translate3d(4%, 0, 0)
+               rotate(var(--lapin-tilt, -8deg)) scale(0.98);
+  }
+  88% {                                                   /* petit rebond final */
+    transform: translate3d(-1.5%, 0, 0)
+               rotate(var(--lapin-tilt, -8deg)) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0)
+               rotate(var(--lapin-tilt, -8deg)) scale(1);
+  }
+}
+
+/* Accessibilité : pas de mouvement — le lapin est simplement là, en oblique */
+@media (prefers-reduced-motion: reduce) {
+  .lapin-peek {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(var(--lapin-tilt, -8deg)) scale(1);
+  }
+  .lapin-peek--go { animation: none; }
+}
+
+/* Page « Présentation » : Marie se cale juste à DROITE de la colonne du
+   résumé (largeur 70ch, centrée), au même niveau que le texte — et non en
+   bas de section comme le lapin sur l'accueil. Reste enfant direct de
+   <section> pour garder le mix-blend-mode sur le fond de la section. */
+[data-page="presentation"] .lapin-peek {
+  left: calc(50% + 35ch + 1rem);       /* 50% (centre) + demi-largeur du résumé + écart */
+  right: auto;
+  top: clamp(6rem, 3rem + 9vw, 11rem);
+  bottom: auto;
+}
+/* Sous 1040px le résumé occupe (presque) toute la largeur : Marie repasse
+   dans le coin bas-droite pour ne pas déborder ni recouvrir le texte. */
+@media (max-width: 1040px) {
+  [data-page="presentation"] .lapin-peek {
+    left: auto;
+    right: var(--lapin-gap, 2vw);
+    top: auto;
+    bottom: 4%;
+  }
+}
+
+/* 19. CADRE-PHOTO « .shot » -------------------------------------------------
+   Poser l'aspect-ratio voulu sur .shot ; l'image remplit tout le cadre,
+   recadrée en `cover`, sans bordure ni fond. */
+.shot {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+.shot > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* La 1ʳᵉ section de l'accueil passe sous l'en-tête fixe (plus de hero) */
+.section--first { margin-top: var(--header-h); }
