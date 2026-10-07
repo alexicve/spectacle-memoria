@@ -21,13 +21,13 @@
 window.ARTICLES = [
   {
     slug: "premiere-la-residence-landeronde",
-    title: "La première du spectacle à la Résidence, à Landeronde",
+    title: "La première représentation du spectacle à Landeronde",
     date: "2026-09-06",
     category: "Tournée",
-    image: "assets/images/image15.jpeg",
-    alt: "Zoé au clavier et Jean à la basse, sur scène pendant la représentation",
+    image: "assets/images/ecran-noir.jpg",
+    alt: "",
     excerpt:
-      "Le vendredi 4 septembre 2026, « Mémoria » a donné sa première représentation publique, à la salle la Résidence, à Landeronde, en Vendée."
+      "Le vendredi 4 septembre 2026, « Mémoria » a donné sa première représentation publique à la salle André Astoul, à Landeronde, en Vendée."
   },
 ];
 
