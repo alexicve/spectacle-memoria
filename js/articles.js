@@ -29,16 +29,6 @@ window.ARTICLES = [
     excerpt:
       "Le vendredi 4 septembre 2026, « Mémoria » a donné sa première représentation publique, à la salle la Résidence, à Landeronde, en Vendée."
   },
-  {
-    slug: "avant-premiere-ecole-lucs-sur-boulogne",
-    title: "Avant-première scolaire à l'école des Lucs-sur-Boulogne",
-    date: "2026-09-03",
-    category: "Tournée",
-    image: "assets/images/article-05.svg",
-    alt: "Photo exemple : avant-première scolaire à l'école des Lucs-sur-Boulogne",
-    excerpt:
-      "Le mercredi 2 septembre 2026, Mémoria a été joué pour la toute première fois devant un public, à l'école des Lucs-sur-Boulogne, en Vendée."
-  },
 ];
 
 /* -------------------------------------------------------------------------

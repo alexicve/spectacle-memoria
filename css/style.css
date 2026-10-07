@@ -337,31 +337,14 @@ p + p { margin-top: 0.9rem; }
   height: var(--header-h);
   display: flex;
   align-items: center;
-  background: var(--logo-blue);   /* même bleu uni que la première section */
-  backdrop-filter: saturate(180%) blur(14px);
-  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  background: var(--gold);   /* bandeau doré uni */
   border-bottom: 1px solid rgba(36, 54, 75, 0.10);
   transition: height 0.3s var(--ease), background-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 .site-header.is-scrolled {
   height: 62px;
-  background: var(--logo-blue);
+  background: var(--gold);
   box-shadow: var(--shadow-s);
-}
-/* Illustration fixe dans l'en-tête (assets/images/header-clouds.jpg),
-   sans animation. background-size:cover garde ses proportions d'origine
-   (pas de bande étirée) et la recadre pour remplir la hauteur du header. */
-.site-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.9;
-  background-image: url("../assets/images/header-clouds.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center 45%;
 }
 .site-header__inner {
   width: min(100% - 2.5rem, var(--maxw));

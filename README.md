@@ -59,8 +59,7 @@ spectaclezoé/
 │
 ├── articles/
 │   ├── _modele-article.html Gabarit à dupliquer pour créer un nouvel article
-│   ├── premiere-la-residence-landeronde.html
-│   └── avant-premiere-ecole-lucs-sur-boulogne.html
+│   └── premiere-la-residence-landeronde.html
 │
 └── assets/
     ├── icons/favicon.svg
