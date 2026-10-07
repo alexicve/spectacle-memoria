@@ -659,6 +659,11 @@ p + p { margin-top: 0.9rem; }
   to   { background-position: 100% 50%; }
 }
 .intro__title { margin: 0.6rem 0 0.4rem; }
+.intro__title img {
+  width: clamp(260px, 42vw, 560px);
+  height: auto;
+  margin-inline: auto;
+}
 .intro__subtitle {
   font-family: var(--font-plume);
   font-weight: 600;
