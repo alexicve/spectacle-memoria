@@ -50,7 +50,7 @@
   /* Ocre doré — accents, boutons, titres */
   --gold: #a97f33;
   --gold-grad: linear-gradient(96deg, #8a672a 0%, #c49a52 30%, #e0c185 52%, #c49a52 74%, #7f5f28 100%);
-  --gold-pastel: #e9cf96;     /* version douce du doré, pour les fonds (ex. header) */
+  --gold-pastel: #f1b12a;     /* doré du logo memoria.png (couleur moyenne de l'illustration), pour les fonds (ex. header) */
 
   /* Crème papier — fonds clairs */
   --cream: #faf5ec;
