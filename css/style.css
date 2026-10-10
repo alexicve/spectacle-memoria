@@ -723,6 +723,12 @@ p + p { margin-top: 0.9rem; }
 .perso-card__body h3 { font-size: 1.15rem; margin-bottom: 0.15rem; }
 .perso-card__body p { font-size: 0.95rem; color: var(--muted); }
 
+/* Zoom léger sur la photo au survol — page d'accueil uniquement.
+   Le zoom est posé sur l'image (pas la carte) : .shot a déjà son
+   overflow:hidden (§19), donc l'agrandissement reste bien cadré. */
+[data-page="accueil"] .perso-card img { transition: transform 0.4s var(--ease); }
+[data-page="accueil"] .perso-card:hover img { transform: scale(1.08); }
+
 /* 9. CARTES -------------------------------------------------------------- */
 .cards {
   display: grid;
