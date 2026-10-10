@@ -50,12 +50,7 @@
   /* Ocre doré — accents, boutons, titres */
   --gold: #a97f33;
   --gold-grad: linear-gradient(96deg, #8a672a 0%, #c49a52 30%, #e0c185 52%, #c49a52 74%, #7f5f28 100%);
-  --gold-pastel: #f1b12a;     /* doré du logo memoria.png (couleur moyenne de l'illustration), pour les fonds (ex. header) */
-  /* Dégradé brillant « glossy », calqué sur les teintes réelles du
-     dessin memoria.png : un reflet clair qui traverse le bandeau en
-     diagonale. Compromis entre un doré sombre et un jaune trop délavé
-     aux extrémités (même principe que --gold-grad sur les titres). */
-  --gold-shine: linear-gradient(100deg, #e3b765 0%, #f2c04c 18%, #f3ba30 42%, #fbc93f 56%, #f2c04c 82%, #e3b765 100%);
+  --gold-pastel: #e9cf96;     /* version douce (pastel) du doré, pour les fonds (ex. header) */
 
   /* Crème papier — fonds clairs */
   --cream: #faf5ec;
@@ -343,13 +338,13 @@ p + p { margin-top: 0.9rem; }
   height: var(--header-h);
   display: flex;
   align-items: center;
-  background: var(--gold-shine);   /* bandeau doré brillant, façon memoria.png */
+  background: var(--gold-pastel);   /* bandeau doré pastel */
   border-bottom: 1px solid rgba(36, 54, 75, 0.10);
   transition: height 0.3s var(--ease), background-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 .site-header.is-scrolled {
   height: 62px;
-  background: var(--gold-shine);
+  background: var(--gold-pastel);
   box-shadow: var(--shadow-s);
 }
 .site-header__inner {
