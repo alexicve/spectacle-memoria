@@ -85,7 +85,7 @@ mettez à jour l'extension dans le HTML si besoin (`.svg` → `.jpg`).
 | Personnages                     | `perso-01.svg` … `perso-04.svg`              | 800 × 1000 px (portrait)|
 | Univers (page d'accueil)        | `univers.svg`                                | 1400 × 900 px          |
 | Équipe artistique               | `equipe-01.svg` … `equipe-04.svg`            | 800 × 800 px (carré)   |
-| Partage réseaux sociaux / Google| `og-image.svg`                               | 1200 × 630 px          |
+| Partage réseaux sociaux / Google| `og-image.jpg`                               | 1200 × 630 px          |
 | Logo (JSON-LD / partage)        | `assets/images/logo-memoria.png`              | PNG carré, fond transparent |
 | Logo (en-tête / pied de page)   | `assets/icons/logo-mark.png`                  | PNG carré, fond transparent |
 

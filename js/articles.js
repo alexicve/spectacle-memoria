@@ -24,7 +24,7 @@ window.ARTICLES = [
     title: "La première représentation du spectacle à Landeronde",
     date: "2026-09-06",
     category: "Tournée",
-    image: "assets/images/image15.jpeg",
+    image: "assets/images/memoria-jean-zoe-concert.jpg",
     alt: "Zoé au clavier et Jean à la basse, sur scène pendant la représentation",
     excerpt:
       "Le vendredi 4 septembre 2026, « Mémoria » a donné sa première représentation publique à la salle André Astoul, à Landeronde, en Vendée."
