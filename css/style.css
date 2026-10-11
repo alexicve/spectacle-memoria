@@ -140,6 +140,11 @@ h1, h2, h3, h4 {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* Le dégradé (background-clip:text) n'est peint que dans la boîte du titre :
+     on l'élargit de chaque côté pour ne pas rogner les fioritures des
+     majuscules cursives, et la marge négative garde le texte aligné. */
+  padding-inline: 0.3em;
+  margin-inline: -0.3em;
 }
 /* Sur fond bleu encre, l'or doit rester lumineux */
 .section--indigo h1,
@@ -872,8 +877,8 @@ p + p { margin-top: 0.9rem; }
   border-radius: 999px;
 }
 .article__body { font-size: 1.06rem; }
-.article__body h2 { margin: 1.8rem 0 0.6rem; }
-.article__body h3 { margin: 1.4rem 0 0.4rem; }
+.article__body h2 { margin-block: 1.8rem 0.6rem; }
+.article__body h3 { margin-block: 1.4rem 0.4rem; }
 .article__body ul { margin: 0.6rem 0 0.6rem 1.2rem; }
 .article__body img { border-radius: var(--radius-m); margin: 1.4rem 0; box-shadow: var(--shadow-s); }
 .article__back { margin-top: 2.5rem; }
