@@ -70,27 +70,22 @@ spectaclezoé/
 
 ## 3. Où placer vos vraies photos
 
-Toutes les images sont dans **`assets/images/`**. Ce sont pour l'instant des visuels
-d'exemple colorés portant la mention « PHOTO EXEMPLE — À REMPLACER ».
+Toutes les images sont dans **`assets/images/`**, avec des noms qui décrivent leur
+contenu (ex. `memoria-jean-zoe-concert.jpg`) : c'est utile pour Google Images.
 
-**Méthode la plus simple : gardez exactement les mêmes noms de fichiers.**
-Remplacez le fichier `.svg` par votre photo (idéalement en `.jpg` ou `.webp`), puis
-mettez à jour l'extension dans le HTML si besoin (`.svg` → `.jpg`).
+**Pour ajouter ou remplacer une photo :** donnez-lui un nom parlant, en minuscules,
+sans accent ni espace (mots séparés par des tirets), puis mettez à jour le chemin
+dans le HTML.
 
-| Emplacement dans le site        | Fichiers à remplacer                          | Dimensions conseillées |
+| Emplacement dans le site        | Fichier                                       | Dimensions conseillées |
 |---------------------------------|----------------------------------------------|------------------------|
-| Carrousel d'accueil (5 photos)  | `hero-01.svg` … `hero-05.svg`                 | 1600 × 900 px (paysage)|
-| Galerie (15 photos)             | `galerie-01.svg` … `galerie-15.svg`          | 1200 × 900 px          |
-| Cartes d'actualités             | `article-01.svg` … `article-06.svg`          | 1200 × 800 px          |
-| Personnages                     | `perso-01.svg` … `perso-04.svg`              | 800 × 1000 px (portrait)|
-| Univers (page d'accueil)        | `univers.svg`                                | 1400 × 900 px          |
-| Équipe artistique               | `equipe-01.svg` … `equipe-04.svg`            | 800 × 800 px (carré)   |
 | Partage réseaux sociaux / Google| `og-image.jpg`                               | 1200 × 630 px          |
 | Logo (JSON-LD / partage)        | `assets/images/logo-memoria.png`              | PNG carré, fond transparent |
 | Logo (en-tête / pied de page)   | `assets/icons/logo-mark.png`                  | PNG carré, fond transparent |
+| Modèle d'article                | `article-01.svg` (image d'exemple)            | 1200 × 800 px          |
 
 **Conseils performance :** exportez vos photos en **JPEG qualité ~80 %** ou **WebP**,
-largeur max 1600 px, poids visé < 300 Ko. Le `loading="lazy"` est déjà en place partout
+largeur max 1920 px, poids visé < 300 Ko. Le `loading="lazy"` est déjà en place partout
 sauf sur la 1re image du carrousel (chargée en priorité, normal).
 
 **Texte alternatif :** pensez à modifier l'attribut `alt="..."` de chaque `<img>`
