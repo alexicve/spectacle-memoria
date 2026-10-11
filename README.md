@@ -9,7 +9,7 @@ Rapide, responsive, accessible, optimisé pour le référencement.
 
 ### Le plus simple
 Double-cliquez sur **`index.html`** : le site s'ouvre dans votre navigateur.
-(Les polices viennent de Google Fonts ; sans connexion, une police système de secours est utilisée.)
+(Les polices sont hébergées sur le site, dans `assets/fonts/` : aucun appel à Google Fonts.)
 
 ### Recommandé (comportement identique à la mise en ligne)
 Ouvrez un terminal dans le dossier du projet et lancez un petit serveur local :
