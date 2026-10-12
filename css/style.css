@@ -1073,20 +1073,9 @@ p + p { margin-top: 0.9rem; }
 .coloriage-card { break-inside: avoid; margin-bottom: 1.4rem; }
 .coloriage-card .gallery__item { margin-bottom: 0; }
 .coloriage-card__dl {
-  display: block;
-  margin-top: 0.5rem;
-  padding: 0.55rem 0.9rem;
-  text-align: center;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--ink);
-  background: var(--white);
-  border: 1px solid rgba(36, 54, 75, 0.15);
-  border-radius: var(--radius-m);
-  text-decoration: none;
-  transition: background 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  justify-content: center;   /* même bouton que la page Documentation, centré sous la carte */
+  margin-top: 0.7rem;
 }
-.coloriage-card__dl:hover { background: var(--logo-blue); transform: translateY(-2px); box-shadow: var(--shadow-s); }
 
 .lightbox {
   position: fixed;
