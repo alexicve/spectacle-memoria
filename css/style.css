@@ -1075,6 +1075,9 @@ p + p { margin-top: 0.9rem; }
 .coloriage-card__dl { margin-top: 0.7rem; }
 /* Même bouton que la page Documentation, étiré sur toute la largeur de la carte */
 .coloriage-card__dl .btn { width: 100%; justify-content: center; }
+/* Pas de soulèvement au survol : seuls le contour et le fond changent */
+.coloriage-card__dl .btn:hover,
+.coloriage-card__dl .btn:active { transform: none; box-shadow: var(--shadow-s); }
 
 .lightbox {
   position: fixed;
