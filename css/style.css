@@ -643,7 +643,8 @@ p + p { margin-top: 0.9rem; }
 }
 /* Fond de la section d'accueil : l'illustration du village de Memoria,
    posée en ::after car ::before sert déjà au liseré coloré du haut de
-   section. Un voile crème par-dessus garde le texte bien lisible.
+   section. Un voile crème léger, plus dense au centre derrière le texte,
+   garde celui-ci lisible tout en laissant l'illustration bien visible.
    Couleur de fond de la section : voir .section--sky. */
 .intro::after {
   content: "";
@@ -652,11 +653,21 @@ p + p { margin-top: 0.9rem; }
   z-index: -1;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(243, 235, 221, 0.62), rgba(243, 235, 221, 0.62)),
+    radial-gradient(ellipse 42% 48% at 50% 55%, rgba(243, 235, 221, 0.62), rgba(243, 235, 221, 0) 100%),
+    linear-gradient(rgba(243, 235, 221, 0.28), rgba(243, 235, 221, 0.28)),
     url("../assets/images/village-de-memoria.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center 40%;
+}
+/* Sur téléphone, le texte occupe toute la largeur : halo élargi */
+@media (max-width: 700px) {
+  .intro::after {
+    background-image:
+      radial-gradient(ellipse 95% 50% at 50% 58%, rgba(243, 235, 221, 0.68), rgba(243, 235, 221, 0.1) 100%),
+      linear-gradient(rgba(243, 235, 221, 0.28), rgba(243, 235, 221, 0.28)),
+      url("../assets/images/village-de-memoria.jpg");
+  }
 }
 .intro__title { margin: 0.6rem 0 0.4rem; }
 .intro__title img {
