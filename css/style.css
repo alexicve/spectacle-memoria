@@ -685,7 +685,8 @@ p + p { margin-top: 0.9rem; }
 }
 .intro__title { margin: 0.6rem 0 0.4rem; }
 .intro__title img {
-  width: clamp(260px, 42vw, 560px);
+  width: clamp(300px, 62vw, 720px);
+  max-width: 100%;
   height: auto;
   margin-inline: auto;
 }
