@@ -641,27 +641,22 @@ p + p { margin-top: 0.9rem; }
      s'échapper derrière toute la page (nuages invisibles sinon). */
   z-index: 0;
 }
-/* Même illustration que l'en-tête (§ .site-header::before), posée en
-   ::after car ::before sert déjà au liseré coloré du haut de section.
-   La section est plus haute que l'en-tête : on couvre toute la zone et
-   on fait dériver lentement le cadrage (va-et-vient) plutôt que répéter
-   une bande fine. Couleur de fond de la section : voir .section--sky. */
+/* Fond de la section d'accueil : l'illustration du village de Memoria,
+   posée en ::after car ::before sert déjà au liseré coloré du haut de
+   section. Un voile crème par-dessus garde le texte bien lisible.
+   Couleur de fond de la section : voir .section--sky. */
 .intro::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.9;
-  background-image: url("../assets/images/header-clouds.jpg");
+  background-image:
+    linear-gradient(rgba(243, 235, 221, 0.62), rgba(243, 235, 221, 0.62)),
+    url("../assets/images/village-de-memoria.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 0% 50%;
-  animation: bg-clouds-pan 50s ease-in-out infinite alternate;
-}
-@keyframes bg-clouds-pan {
-  from { background-position: 0% 50%; }
-  to   { background-position: 100% 50%; }
+  background-position: center 40%;
 }
 .intro__title { margin: 0.6rem 0 0.4rem; }
 .intro__title img {

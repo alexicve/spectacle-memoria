@@ -20,7 +20,7 @@
   <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="assets/icons/favicon.png">
   <link rel="stylesheet" href="css/fonts.css?v=1">
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/style.css?v=8">
 
   <script src="js/main.js" defer></script>
   <script src="js/tabs.js" defer></script>
@@ -66,13 +66,13 @@
              Pour ajouter une image : copiez un bloc <button class="gallery__item">
              dans le panneau voulu. Réglages des onglets : js/tabs.js -->
         <div class="tabs" role="tablist" aria-label="Catégories de la galerie">
-          <button class="tabs__btn is-active" type="button" role="tab" id="tab-dessins" aria-selected="true" aria-controls="panel-dessins" data-tab="dessins">🎨 Les personnages</button>
-          <button class="tabs__btn" type="button" role="tab" id="tab-photos" aria-selected="false" tabindex="-1" aria-controls="panel-photos" data-tab="photos">📷 Moments de vie</button>
+          <button class="tabs__btn is-active" type="button" role="tab" id="tab-photos" aria-selected="true" aria-controls="panel-photos" data-tab="photos">📷 Moments de vie</button>
+          <button class="tabs__btn" type="button" role="tab" id="tab-dessins" aria-selected="false" tabindex="-1" aria-controls="panel-dessins" data-tab="dessins">🎨 Illustrations</button>
           <button class="tabs__btn" type="button" role="tab" id="tab-coloriages" aria-selected="false" tabindex="-1" aria-controls="panel-coloriages" data-tab="coloriages">✏️ Coloriages</button>
         </div>
 
-        <!-- ===== Onglet 1 : dessins des personnages & de l'univers ===== -->
-        <div class="gallery gallery-panel" id="panel-dessins" role="tabpanel" aria-labelledby="tab-dessins" data-tab-panel="dessins">
+        <!-- ===== Onglet « Illustrations » : dessins des personnages & de l'univers ===== -->
+        <div class="gallery gallery-panel" id="panel-dessins" role="tabpanel" aria-labelledby="tab-dessins" data-tab-panel="dessins" hidden>
           <button class="gallery__item reveal" type="button" data-full="assets/images/marie.jpg?v=2" data-caption="Marie, personnage du spectacle">
             <span class="shot" style="aspect-ratio:3/4"><img src="assets/images/marie.jpg?v=2" alt="Portrait illustré de Marie, cheveux bruns ondulés et lunettes rondes" loading="lazy"></span>
             <span class="gallery__cap">Marie</span>
@@ -115,8 +115,8 @@
           </button>
         </div>
 
-        <!-- ===== Onglet 2 : photos des moments de vie du spectacle ===== -->
-        <div class="gallery gallery-panel" id="panel-photos" role="tabpanel" aria-labelledby="tab-photos" data-tab-panel="photos" hidden>
+        <!-- ===== Onglet « Moments de vie » (affiché par défaut) : photos du spectacle ===== -->
+        <div class="gallery gallery-panel" id="panel-photos" role="tabpanel" aria-labelledby="tab-photos" data-tab-panel="photos">
           <button class="gallery__item reveal" type="button" data-full="assets/images/memoria-repetition-boite-a-musique.jpg" data-caption="En répétition, à l'ouverture de la boîte à musique">
             <span class="shot" style="aspect-ratio:16/9"><img src="assets/images/memoria-repetition-boite-a-musique.jpg" alt="Zoé en répétition, ouvrant la boîte à musique en bois sur scène" loading="lazy"></span>
             <span class="gallery__cap">En répétition, à l'ouverture de la boîte à musique</span>
