@@ -643,8 +643,8 @@ p + p { margin-top: 0.9rem; }
 }
 /* Fond de la section d'accueil : l'illustration du village de Memoria,
    posée en ::after car ::before sert déjà au liseré coloré du haut de
-   section. Un voile crème léger, plus dense au centre derrière le texte,
-   garde celui-ci lisible tout en laissant l'illustration bien visible.
+   section. Voile très léger : la lisibilité est assurée par le panneau
+   du contenu (.intro > .container) ci-dessous.
    Couleur de fond de la section : voir .section--sky. */
 .intro::after {
   content: "";
@@ -653,22 +653,26 @@ p + p { margin-top: 0.9rem; }
   z-index: -1;
   pointer-events: none;
   background-image:
-    radial-gradient(ellipse 42% 48% at 50% 55%, rgba(243, 235, 221, 0.62), rgba(243, 235, 221, 0) 100%),
-    linear-gradient(rgba(243, 235, 221, 0.28), rgba(243, 235, 221, 0.28)),
+    linear-gradient(rgba(243, 235, 221, 0.12), rgba(243, 235, 221, 0.12)),
     url("../assets/images/village-de-memoria.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center 40%;
 }
-/* Sur téléphone, le texte occupe toute la largeur : halo élargi */
-@media (max-width: 700px) {
-  .intro::after {
-    background-image:
-      radial-gradient(ellipse 95% 50% at 50% 58%, rgba(243, 235, 221, 0.68), rgba(243, 235, 221, 0.1) 100%),
-      linear-gradient(rgba(243, 235, 221, 0.28), rgba(243, 235, 221, 0.28)),
-      url("../assets/images/village-de-memoria.jpg");
-  }
+/* Le contenu de la section repose sur un panneau « verre dépoli » crème :
+   le texte et la portée ressortent nettement, le village reste visible
+   tout autour (et légèrement flouté derrière le panneau). */
+.intro > .container {
+  padding: clamp(1.4rem, 0.8rem + 2.5vw, 2.6rem) clamp(1rem, 0.5rem + 2.5vw, 2.6rem);
+  background: rgba(250, 246, 238, 0.80);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius-l);
+  box-shadow: 0 18px 44px rgba(36, 54, 75, 0.18);
 }
+.intro .staff { opacity: 0.85; }
+/* Notes de musique plus visibles sur l'illustration */
+.intro .note { text-shadow: 0 0 6px rgba(255, 255, 255, 0.95), 0 0 2px #fff; }
 /* Pastille « Spectacle pour enfants » de l'accueil : opaque pour rester
    nette sur l'illustration du village */
 .intro .eyebrow {
