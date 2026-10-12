@@ -1044,13 +1044,15 @@ p + p { margin-top: 0.9rem; }
   width: 100%;
   transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
-.gallery__item:hover { transform: translateY(-4px) scale(1.01); box-shadow: var(--shadow-m); }
+/* Survol (et clavier) : toute la carte s'agrandit, passe devant ses voisines */
+.gallery__item:hover,
+.gallery__item:focus-visible {
+  position: relative;
+  z-index: 2;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: var(--shadow-m);
+}
 .gallery__item img { width: 100%; display: block; }
-/* Zoom léger sur l'image au survol (et au clavier), comme sur l'accueil :
-   .shot a son overflow:hidden (§19), l'agrandissement reste cadré. */
-.gallery__item .shot > img { transition: transform 0.4s var(--ease); }
-.gallery__item:hover .shot > img,
-.gallery__item:focus-visible .shot > img { transform: scale(1.08); }
 .gallery__cap {
   display: block;
   padding: 0.6rem 0.8rem;
