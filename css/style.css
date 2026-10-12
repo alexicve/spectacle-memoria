@@ -669,6 +669,12 @@ p + p { margin-top: 0.9rem; }
       url("../assets/images/village-de-memoria.jpg");
   }
 }
+/* Pastille « Spectacle pour enfants » de l'accueil : opaque pour rester
+   nette sur l'illustration du village */
+.intro .eyebrow {
+  background: #e2e0cd;
+  box-shadow: 0 2px 10px rgba(36, 54, 75, 0.12);
+}
 .intro__title { margin: 0.6rem 0 0.4rem; }
 .intro__title img {
   width: clamp(260px, 42vw, 560px);
@@ -1532,6 +1538,12 @@ p + p { margin-top: 0.9rem; }
 }
 @media (max-width: 900px) {
   .lapin-peek { --lapin-size: clamp(110px, 22vw, 170px); }
+}
+/* Sur téléphone, le Ridédou (opaque) ne doit pas masquer les boutons :
+   on lui réserve une place sous le contenu de la section. */
+@media (max-width: 700px) {
+  .intro { padding-bottom: calc(var(--lapin-size, 130px) * 0.95 + 1rem); }
+  .lapin-peek { --lapin-size: 130px; --lapin-bottom: 0.6rem; }
 }
 
 /* Le fond blanc du JPEG s'efface sur fond clair.
