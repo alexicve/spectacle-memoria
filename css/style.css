@@ -984,6 +984,19 @@ p + p { margin-top: 0.9rem; }
    carte entière, pour ne jamais rogner le titre doré en dessous. */
 .team-card img { aspect-ratio: 1/1; object-fit: cover; width: 100%; border-radius: var(--radius-m) var(--radius-m) 0 0; }
 .team-card__body { padding: 1rem; }
+/* Page Présentation : toutes les cartes (personnages, équipe, infos pratiques)
+   s'agrandissent au survol. Le préfixe [data-page] leur donne la priorité sur
+   .reveal.is-visible, qui impose sinon transform:none et une transition lente. */
+[data-page="presentation"] :is(.perso-card, .team-card, .info-item).is-visible {
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  transition-delay: 0ms;
+}
+[data-page="presentation"] :is(.perso-card, .team-card, .info-item):hover {
+  position: relative;
+  z-index: 2;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 14px 30px rgba(36, 54, 75, 0.12);
+}
 .team-card__body h3 { font-size: 1.1rem; }
 .team-card__body p { color: var(--muted); font-size: 0.9rem; }
 
