@@ -51,7 +51,7 @@
         "Nous vous répondons sous 48 h ouvrées."
       );
     }).catch(function () {
-      setStatus("err", "Une erreur est survenue. Vous pouvez nous écrire directement à spectacle.memoria@gmail.com");
+      setStatus("err", "Une erreur est survenue. Vous pouvez nous écrire directement à contact@spectacle-memoria.fr");
     }).finally(function () {
       if (btn) { btn.disabled = false; btn.textContent = label; }
     });
