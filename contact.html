@@ -40,7 +40,7 @@
   }
   </script>
   <script src="js/main.js" defer></script>
-  <script src="js/contact.js?v=2" defer></script>
+  <script src="js/contact.js?v=3" defer></script>
 </head>
 <body data-page="contact">
   <a class="skip-link" href="#contenu">Aller au contenu principal</a>
@@ -97,9 +97,11 @@
 
           <!-- ===== FORMULAIRE ===== -->
           <form class="form reveal" data-contact-form novalidate
-                action="https://formspree.io/f/VOTRE_ID" method="post">
+                action="https://formspree.io/f/xzedaykb" method="post">
             <h2 style="font-size:1.3rem">Votre demande</h2>
             <p class="form__status" aria-live="polite"></p>
+            <!-- Piège anti-spam : invisible pour les visiteurs, rempli seulement par les robots -->
+            <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
 
             <div class="form__row">
               <div class="field">
