@@ -715,7 +715,10 @@ p + p { margin-top: 0.9rem; }
 .univers-media[data-parallax] {
   transform: rotate(-1.4deg) translate3d(0, var(--parallax-y, 0), 0);
 }
-.univers-media img { width: 100%; aspect-ratio: 7/5; object-fit: cover; }
+/* Illustration en portrait (maison bleue) affichée en entier, largeur
+   plafonnée pour ne pas dépasser en hauteur le texte d'à côté */
+.univers-media { width: 100%; max-width: 440px; justify-self: center; }
+.univers-media img { width: 100%; aspect-ratio: 2/3; object-fit: cover; }
 .univers-media__badge {
   position: absolute;
   right: 14px; bottom: 14px;
