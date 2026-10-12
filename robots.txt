@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /articles/_modele-article.html
 
-Sitemap: https://www.etoile-filante-spectacle.fr/sitemap.xml
+Sitemap: https://spectacle-memoria.fr/sitemap.xml

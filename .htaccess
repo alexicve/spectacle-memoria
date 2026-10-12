@@ -1,0 +1,8 @@
+# Adresse officielle : https://spectacle-memoria.fr (sans www, en HTTPS)
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.spectacle-memoria\.fr$ [NC,OR]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://spectacle-memoria.fr/$1 [R=301,L]
+
+# Bloque l'accès aux fichiers du dépôt Git
+RedirectMatch 404 /\.git

@@ -175,5 +175,5 @@ C'est tout : le lien « Lire l'article » pointera automatiquement vers cette pa
   `defer` sur les scripts, images vectorielles d'exemple très légères.
 
 > ⚠️ Avant mise en ligne : remplacez partout le domaine d'exemple
-> `https://www.etoile-filante-spectacle.fr` (dans les balises `<link rel="canonical">`,
+> `https://spectacle-memoria.fr` (dans les balises `<link rel="canonical">`,
 > Open Graph, `sitemap.xml` et `robots.txt`) par votre vrai nom de domaine.
