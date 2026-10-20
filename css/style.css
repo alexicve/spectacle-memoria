@@ -1569,6 +1569,11 @@ p + p { margin-top: 0.9rem; }
 @media (max-width: 900px) {
   .lapin-peek { --lapin-size: clamp(110px, 22vw, 170px); }
 }
+/* Page Présentation : Marie animée masquée sur tablette et téléphone,
+   où elle recouvrait le texte du résumé (l'accueil garde son Ridédou). */
+@media (max-width: 1024px) {
+  [data-page="presentation"] .lapin-peek { display: none; }
+}
 /* Sur téléphone, le Ridédou (opaque) ne doit pas masquer les boutons :
    on lui réserve une place sous le contenu de la section. */
 @media (max-width: 700px) {
