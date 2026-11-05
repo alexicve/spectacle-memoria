@@ -20,6 +20,16 @@
 
 window.ARTICLES = [
   {
+    slug: "residence-les-lucs-sur-boulogne",
+    title: "Deuxième semaine de résidence aux Lucs-sur-Boulogne",
+    date: "2026-11-05",
+    category: "Coulisses",
+    image: "assets/images/moments/jean-zoe-maison-bleue-800.jpg",
+    alt: "Jean et Zoé sur scène sous une lumière bleue, devant l'illustration de la maison bleue",
+    excerpt:
+      "Mise en scène, coaching vocal, tournage du teaser et deux représentations devant près de 400 enfants : retour sur une semaine riche en émotions."
+  },
+  {
     slug: "premiere-la-residence-landeronde",
     title: "La première représentation du spectacle à Landeronde",
     date: "2026-09-06",

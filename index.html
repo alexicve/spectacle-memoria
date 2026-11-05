@@ -21,7 +21,7 @@
   <link rel="icon" type="image/png" href="assets/icons/favicon.png">
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   <link rel="stylesheet" href="css/fonts.css?v=1">
-  <link rel="stylesheet" href="css/style.css?v=23">
+  <link rel="stylesheet" href="css/style.css?v=25">
 
   <script type="application/ld+json">
   {
@@ -45,6 +45,17 @@
         "telephone": "+33-6-76-24-74-16",
         "areaServed": { "@type": "AdministrativeArea", "name": "Vendée" },
         "sameAs": ["https://www.instagram.com/spectacle.memoria/"]
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Mémoria — teaser du spectacle",
+        "description": "Teaser de Mémoria, le village des souvenirs perdus : un spectacle musical pour enfants de 3 à 11 ans, créé par Zoé Mallardeau et Jean Pénisson.",
+        "thumbnailUrl": "https://spectacle-memoria.fr/assets/video/teaser-memoria-poster.jpg",
+        "contentUrl": "https://spectacle-memoria.fr/assets/video/teaser-memoria-1080.mp4",
+        "uploadDate": "2026-11-05",
+        "duration": "PT1M37S",
+        "inLanguage": "fr-FR",
+        "publisher": { "@id": "https://spectacle-memoria.fr/#compagnie" }
       },
       {
         "@type": "TheaterEvent",
@@ -81,6 +92,7 @@
   <script src="js/main.js" defer></script>
   <script src="js/articles.js" defer></script>
   <script src="js/lapin.js" defer></script>
+  <script src="js/teaser.js?v=2" defer></script>
 </head>
 <body data-page="accueil">
   <a class="skip-link" href="#contenu">Aller au contenu principal</a>
@@ -135,8 +147,42 @@
         </p>
         <div class="btn-row reveal" style="justify-content:center">
           <a class="btn btn--primary" href="presentation.html">Découvrir le spectacle <span class="btn__arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="#teaser"><span aria-hidden="true">▶</span>&nbsp;Voir le teaser</a>
           <a class="btn btn--ghost" href="contact.html">Nous contacter</a>
         </div>
+      </div>
+    </section>
+
+    <!-- ==================== TEASER VIDÉO ====================
+         Vidéos : assets/video/ (1080p + 720p pour mobile, affiche .jpg).
+         Lecteur : js/teaser.js · Styles : css/style.css §20 -->
+    <section class="section section--teaser" id="teaser" aria-labelledby="teaser-title">
+      <div class="container">
+        <div class="teaser-head">
+          <p class="eyebrow reveal">✦ En vidéo</p>
+          <h2 class="section-title reveal" id="teaser-title">Entrez dans Memoria</h2>
+          <p class="section-intro reveal">Une minute trente pour ouvrir la boîte à musique&nbsp;: découvrez le teaser du spectacle.</p>
+        </div>
+
+        <div class="teaser reveal" data-teaser data-teaser-autoplay>
+          <video class="teaser__video" controls preload="none" playsinline
+                 poster="assets/video/teaser-memoria-poster.jpg"
+                 data-src-sd="assets/video/teaser-memoria-720.mp4"
+                 width="1920" height="1080"
+                 aria-label="Teaser du spectacle Mémoria">
+            <source src="assets/video/teaser-memoria-1080.mp4" type="video/mp4">
+            <a href="assets/video/teaser-memoria-1080.mp4">Télécharger le teaser de Mémoria (MP4)</a>
+          </video>
+          <button class="teaser__play" type="button" aria-label="Lancer le teaser de Mémoria (1 min 37)">
+            <span class="teaser__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span>
+            <span class="teaser__label">Lancer le teaser <span class="teaser__time">1:37</span></span>
+          </button>
+          <button class="teaser__unmute" type="button">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Activer le son
+          </button>
+        </div>
+        <p class="teaser-credit reveal">Une création originale de Zoé Mallardeau &amp; Jean Pénisson · Teaser réalisé par Quentin-Azzedine Lahjaily</p>
       </div>
     </section>
 
