@@ -6,3 +6,12 @@ RewriteRule ^(.*)$ https://spectacle-memoria.fr/$1 [R=301,L]
 
 # Bloque l'accès aux fichiers du dépôt Git
 RedirectMatch 404 /\.git
+
+# Pages, styles et scripts : le navigateur revérifie à chaque visite
+# (réponse « 304 inchangé » très légère) — les mises à jour du site
+# apparaissent tout de suite. Images et vidéos restent en cache 7 jours.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html?|css|js|xml|txt)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
