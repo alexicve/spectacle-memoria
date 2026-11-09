@@ -34,8 +34,8 @@ window.ARTICLES = [
     title: "La première représentation du spectacle à Landeronde",
     date: "2026-09-06",
     category: "Tournée",
-    image: "assets/images/memoria-jean-zoe-concert.jpg",
-    alt: "Zoé au clavier et Jean à la basse, sur scène pendant la représentation",
+    image: "assets/images/moments/pompon-et-zoe-en-scene-800.jpg",
+    alt: "Zoé, guitare levée, et Jean coiffé des oreilles de Pompon, basse à la main, en plein numéro sur scène",
     excerpt:
       "Le vendredi 4 septembre 2026, « Mémoria » a donné sa première représentation publique à la salle André Astoul, à Landeronde, en Vendée."
   },
@@ -67,7 +67,6 @@ window.ARTICLES = [
       '<article class="news-card reveal" style="--reveal-delay:' + (index * 90) + 'ms">' +
         '<a class="news-card__media" href="' + url + '" aria-label="Lire : ' + escapeAttr(article.title) + '">' +
           '<img src="' + (prefix || "") + article.image + '" alt="' + escapeAttr(article.alt) + '" loading="lazy" width="1200" height="800">' +
-          '<span class="news-card__cat">' + escapeHtml(article.category) + '</span>' +
         '</a>' +
         '<div class="news-card__body">' +
           '<span class="news-card__date">' + formatDate(article.date) + '</span>' +
